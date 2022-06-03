@@ -2,7 +2,7 @@
     display: grid;
     grid-template-areas:
         "header header"
-        "navbar profile";
+        "navbar pages";
     grid-template-rows: 100px 1fr;
     grid-template-columns: 1fr 10fr;
     margin: 0pc;
@@ -16,8 +16,8 @@
     background-color: aqua;
 }
 
-.Profile {
-    grid-area: profile;
+.Pages {
+    grid-area: pages;
     background-color: bisque;
 }
 

@@ -5,11 +5,11 @@ const Navbar = () => {
     return (
         <div className='Navbar'>
             <div className='navbar'>
-                <div>My profile</div>
-                <div>Feed</div>
-                <div>Messages</div>
-                <div>Videos</div>
-                <div>Settings</div>
+                <div>Home</div>
+                <div>Discover</div>
+                <div>Add</div>
+                <div>Inbox</div>
+                <div>Profile</div>
             </div>
         </div>
     )

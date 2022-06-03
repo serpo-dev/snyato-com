@@ -1,13 +1,13 @@
 import React from 'react'
 import './App.css'
-import Header from './Grids/Header'
-import Navbar from './Grids/Navbar'
-import Profile from './Grids/Profile'
+import Header from './Header/Header'
+import Navbar from './Navbar/Navbar'
+import Profile from './Pages/Profile/Profile'
 
 function App() {
   return (
     <div className="appWrapper">
-      <Header name={prompt('Write here your name please')} />
+      <Header />
       <Navbar />
       <Profile />
       <input />

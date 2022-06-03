@@ -1,24 +1,25 @@
 import React from 'react'
 import stylesheet from './Navbar.module.css'
+import { NavLink } from 'react-router-dom'
 
 const Navbar = () => {
     return (
         <div className='Navbar'>
             <div className={stylesheet.navbar}>
                 <div>
-                    <a href='/home'>Home</a>
+                    <NavLink to='/home'>Home</NavLink>
                 </div>
                 <div>
-                    <a href='/search'>Discover</a>
+                    <NavLink to='/search'>Discover</NavLink>
                 </div>
                 <div>
-                    <a href='/upload'>Add</a>
+                    <NavLink to='/upload'>Add</NavLink>
                 </div>
                 <div>
-                    <a href='/im'>Inbox</a>
+                    <NavLink to='/im'>Inbox</NavLink>
                 </div>
                 <div>
-                    <a href='/user'>Profile</a>
+                    <NavLink to='/user'>Profile</NavLink>
                 </div>
             </div>
         </div>

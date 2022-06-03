@@ -1,5 +1,6 @@
 .navbar {
     display: flex;
     flex-direction: column;
-    color: red;
+    justify-content: center;
+    align-items: center;
 }

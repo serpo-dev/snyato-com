@@ -1,15 +1,25 @@
 import React from 'react'
-import css from './Navbar.module.css'
+import stylesheet from './Navbar.module.css'
 
 const Navbar = () => {
     return (
         <div className='Navbar'>
-            <div className={CSS.navbar}>
-                <div>Home</div>
-                <div>Discover</div>
-                <div>Add</div>
-                <div>Inbox</div>
-                <div>Profile</div>
+            <div className={stylesheet.navbar}>
+                <div>
+                    <a href='/home'>Home</a>
+                </div>
+                <div>
+                    <a href='/search'>Discover</a>
+                </div>
+                <div>
+                    <a href='/upload'>Add</a>
+                </div>
+                <div>
+                    <a href='/im'>Inbox</a>
+                </div>
+                <div>
+                    <a href='/user'>Profile</a>
+                </div>
             </div>
         </div>
     )

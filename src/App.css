@@ -13,15 +13,13 @@
 
 .Header {
     grid-area: header;
-    background-color: aqua;
-}
-
-.Pages {
-    grid-area: pages;
-    background-color: bisque;
 }
 
 .Navbar {
     grid-area: navbar;
-    background-color: aquamarine;
+}
+
+.Pages {
+    grid-area: pages;
+    background-color: red;
 }

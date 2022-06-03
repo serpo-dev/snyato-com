@@ -7,19 +7,19 @@ const Navbar = () => {
         <div className='Navbar'>
             <div className={stylesheet.navbar}>
                 <div>
-                    <NavLink to='/'>Home</NavLink>
+                    <NavLink to='/' className={(navData) => navData.isActive ? stylesheet.activeState : ""}>Home</NavLink>
                 </div>
                 <div>
-                    <NavLink to='/search'>Discover</NavLink>
+                    <NavLink to='/search' className={(navData) => navData.isActive ? stylesheet.activeState : ""}>Discover</NavLink>
                 </div>
                 <div>
-                    <NavLink to='/upload'>Add</NavLink>
+                    <NavLink to='/upload' className={(navData) => navData.isActive ? stylesheet.activeState : ""}>Add</NavLink>
                 </div>
                 <div>
-                    <NavLink to='/im'>Inbox</NavLink>
+                    <NavLink to='/im' className={(navData) => navData.isActive ? stylesheet.activeState : ""}>Inbox</NavLink>
                 </div>
                 <div>
-                    <NavLink to='/user'>Profile</NavLink>
+                    <NavLink to='/user' className={(navData) => navData.isActive ? stylesheet.activeState : ""}>Profile</NavLink>
                 </div>
             </div>
         </div>

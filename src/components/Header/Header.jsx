@@ -4,7 +4,6 @@ import stylesheet from './Header.module.css'
 
 
 const Header = (props) => {
-    debugger;
     return (
         <div className="Header">
             <h1 className={stylesheet.header}>

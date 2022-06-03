@@ -1,9 +1,11 @@
 import React from 'react'
 import stylesheet from './Recommendations.module.css'
 
-const Recommendations = () =>{
+const Recommendations = () => {
     return (
-        <p>Here's your recommend photos</p>
+        <div>
+            <p>Here's your recommend photos</p>
+        </div>
     )
 }
 

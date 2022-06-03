@@ -3,7 +3,9 @@ import stylesheet from './Add.module.css'
 
 const Add = () => {
     return (
-        <p>Here you can upload your live photo</p>
+        <div>
+            <p>Here you can upload your live photo</p>
+        </div>
     )
 }
 

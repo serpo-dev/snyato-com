@@ -8,14 +8,14 @@ import Inbox from './Inbox/Inbox'
 import Profile from './Profile/Profile'
 
 
-const Pages = () => {
+const Pages = (props) => {
     return (
         <div className={stylesheet.Pages}>
             <Routes>
                 <Route path='/home/*' element={<Home />} />
                 <Route path='/search/*' element={<Discover />} />
                 <Route path='/upload/*' element={<Add />} />
-                <Route path='/im/*' element={<Inbox />} />
+                <Route path='/im/*' element={<Inbox InboxItems={props.InboxItems} InboxMessages={props.InboxMessages} />} />
                 <Route path='/user/*' element={<Profile />} />
             </Routes>
         </div>

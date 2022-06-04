@@ -3,11 +3,10 @@ import { NavLink } from 'react-router-dom'
 import stylesheet from './ChatItem.module.css'
 
 const ChatItem = (props) => {
-    let path = `/im/${props.id}`
 
     return (
         <div className={stylesheet.item}>
-            <NavLink to={path} className={(navData) => navData.isActive ? stylesheet.active : ''}>{props.name}</NavLink>
+            <NavLink to={`/im/${props.id}`} className={(navData) => navData.isActive ? stylesheet.active : ''}>{props.name}</NavLink>
         </div>
     )
 }

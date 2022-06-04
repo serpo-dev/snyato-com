@@ -6,11 +6,10 @@ import stylesheet from './Header.module.css'
 const Header = (props) => {
     return (
         <div className="Header">
-            <h1 className={stylesheet.header}>
+            <div className={stylesheet.header}>
                 <img src={logo} />
-                <h1>{props.name}</h1>
-            </h1>
-
+                <h1>Live Catcher</h1>
+            </div>
         </div>
     )
 }

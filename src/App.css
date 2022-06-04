@@ -3,23 +3,29 @@
     grid-template-areas:
         "header header"
         "navbar pages";
-    grid-template-rows: 100px 1fr;
-    grid-template-columns: 1fr 10fr;
+    grid-template-rows: 120px;
+    grid-template-columns: 1fr 2fr;
     margin: 0pc;
     padding: 0px;
-    grid-gap: 0px;
+    grid-gap: 10px;
     border: 0px;
 }
 
 .Header {
     grid-area: header;
+    justify-self: left;
+    padding-left: 30%;
+    padding-top: 30px;
 }
 
 .Navbar {
     grid-area: navbar;
+    justify-self: right;
+    padding-right: 20%;
 }
 
 .Pages {
     grid-area: pages;
     background-color: red;
+    justify-self: left;
 }

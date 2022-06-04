@@ -12,11 +12,11 @@ const Pages = () => {
     return (
         <div>
             <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path='/search' element={<Discover />} />
-                <Route path='/upload' element={<Add />} />
-                <Route path='/im' element={<Inbox />} />
-                <Route path='/user' element={<Profile />} />
+                <Route path='/*' element={<Home />} />
+                <Route path='/search/*' element={<Discover />} />
+                <Route path='/upload/*' element={<Add />} />
+                <Route path='/im/*' element={<Inbox />} />
+                <Route path='/user/*' element={<Profile />} />
             </Routes>
         </div>
     )

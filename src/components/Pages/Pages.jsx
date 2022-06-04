@@ -10,7 +10,7 @@ import Profile from './Profile/Profile'
 
 const Pages = () => {
     return (
-        <div>
+        <div className={stylesheet.Pages}>
             <Routes>
                 <Route path='/home/*' element={<Home />} />
                 <Route path='/search/*' element={<Discover />} />

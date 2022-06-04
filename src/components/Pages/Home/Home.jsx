@@ -6,7 +6,7 @@ import Following from './Following/Following'
 
 const Home = () => {
     return (
-            <div>
+            <div className={stylesheet.home}>
                 <p>hi</p>
                 <NavLink to='/home/feed'>For you</NavLink>
                 <br />

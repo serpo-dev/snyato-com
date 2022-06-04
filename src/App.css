@@ -9,6 +9,8 @@
     padding: 0px;
     grid-gap: 10px;
     border: 0px;
+    align-items: center;
+    justify-items: center;
 }
 
 .Header {
@@ -20,12 +22,11 @@
 
 .Navbar {
     grid-area: navbar;
-    justify-self: right;
+    justify-self: end;
+    align-self: start;
     padding-right: 20%;
 }
 
 .Pages {
     grid-area: pages;
-    background-color: red;
-    justify-self: left;
 }

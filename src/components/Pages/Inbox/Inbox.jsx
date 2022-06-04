@@ -1,7 +1,7 @@
 import React from "react";
 import stylesheet from './Inbox.module.css'
 import ChatItem from './ChatItem/ChatItem'
-import SelectedChat from "./SelectedChat/SelectedChat";
+import Message from "./Message/Message";
 
 const Inbox = () => {
 
@@ -14,21 +14,22 @@ const Inbox = () => {
         { name: 'Erich', id: '6' }
     ]
 
-    const listItems = inboxData.map(
-        (object, i) => {
-            return (<ChatItem key={i} name={object.name} id={object.id} />)
-        }
-    )
+    const messagesData = [
+        { id: '1', text: '- It\'s not easy to live your own way.' },
+        { id: '2', text: 'Because you can\'t blame anybody but yourself.' },
+        { id: '2', text: '- I don\'t want to be a burden! I want to be useful.' }
+    ]
+
+    const listInboxItems = inboxData.map((object, i) => <ChatItem key={i} name={object.name} id={object.id} />)
+    const listMessages = messagesData.map((message, i) => <Message key={i} id={message.id} text={message.text} />)
 
     return (
         <div className={stylesheet.messages}>
             <div className={stylesheet.people}>
-                {listItems}
+                {listInboxItems}
             </div>
             <div className={stylesheet.dialogs}>
-                <div>
-                    <SelectedChat />
-                </div>
+                {listMessages}
             </div>
         </div>
     )

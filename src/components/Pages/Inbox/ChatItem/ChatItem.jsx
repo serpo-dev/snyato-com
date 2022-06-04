@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import stylesheet from './ChatItem.module.css'
 
 const ChatItem = (props) => {
-    let path = '/im/' + props.id
+    let path = `/im/${props.id}`
 
     return (
         <div className={stylesheet.item}>

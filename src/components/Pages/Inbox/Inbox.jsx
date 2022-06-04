@@ -14,8 +14,8 @@ const Inbox = () => {
         { name: 'Erich', id: '6' }
     ]
 
-    const listItems = inboxData.map(object => {
-        return (<ChatItem name={object.name} id={object.id} />)
+    const listItems = inboxData.map((object, i) => {
+        return (<ChatItem key={i} name={object.name} id={object.id} />)
     })
 
     return (

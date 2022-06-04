@@ -8,12 +8,12 @@ const Home = () => {
     return (
             <div>
                 <p>hi</p>
-                {/* <NavLink to='/feed'>For you</NavLink>
+                <NavLink to='/home/feed'>For you</NavLink>
                 <br />
-                <NavLink to='/friends'>Following</NavLink> */}
+                <NavLink to='/home/friends'>Following</NavLink>
                 <Routes>
-                    <Route element={<Recommendations />} />
-                    <Route  element={<Following />} />
+                    <Route path='/feed' element={<Recommendations />} />
+                    <Route path='/friends' element={<Following />} />
                 </Routes>
             </div>
     )

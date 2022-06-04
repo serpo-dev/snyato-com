@@ -7,7 +7,7 @@ const Navbar = () => {
         <div className='Navbar'>
             <div className={stylesheet.navbar}>
                 <div>
-                    <NavLink to='/' className={(navData) => navData.isActive ? stylesheet.activeState : ""}>Home</NavLink>
+                    <NavLink to='/home' className={(navData) => navData.isActive ? stylesheet.activeState : ""}>Home</NavLink>
                 </div>
                 <div>
                     <NavLink to='/search' className={(navData) => navData.isActive ? stylesheet.activeState : ""}>Discover</NavLink>

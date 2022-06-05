@@ -7,13 +7,11 @@ import Pages from './components/Pages/Pages'
 
 function App(props) {
   return (
-    <BrowserRouter>
-      <div className="appWrapper">
-        <Header />
-        <Navbar />
-        <Pages InboxItems={props.inboxState.Inbox.InboxItems} InboxMessages={props.inboxState.Inbox.InboxMessages} />
-      </div >
-    </BrowserRouter>
+    <div className="appWrapper">
+      <Header />
+      <Navbar />
+      <Pages InboxItems={props.inboxState.Inbox.InboxItems} InboxMessages={props.inboxState.Inbox.InboxMessages} />
+    </div >
   );
 }
 

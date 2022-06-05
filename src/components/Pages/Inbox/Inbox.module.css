@@ -1,6 +1,23 @@
+.textarea {
+    color: red;
+}
+
+.textarea textarea {
+    resize: none;
+    height: 25px;
+    width: 25%;
+    float: left;
+}
+
+.textarea button {
+    /* float: right; */
+    margin-right: 10%;
+}
+
 .messages {
     display: grid;
     grid-template-columns: 1fr 10fr;
+    float: left;
 }
 
 .dialogs {

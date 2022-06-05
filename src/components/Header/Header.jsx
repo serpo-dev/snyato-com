@@ -5,12 +5,12 @@ import stylesheet from './Header.module.css'
 
 const Header = (props) => {
     return (
-        <div className="Header">
+        <div className = "Header" >
             <div className={stylesheet.header}>
                 <img src={logo} />
                 <h1>Live Catcher</h1>
             </div>
-        </div>
+        </div >
     )
 }
 

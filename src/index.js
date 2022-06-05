@@ -7,7 +7,6 @@ import { addMessage } from './redux/state';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-
 root.render(
     <BrowserRouter>
         <App inboxState={state} addMessage={addMessage} />

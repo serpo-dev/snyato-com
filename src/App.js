@@ -11,7 +11,7 @@ function App(props) {
       <div className="appWrapper">
         <Header />
         <Navbar />
-        <Pages InboxItems={props.InboxItems} InboxMessages={props.InboxMessages} />
+        <Pages InboxItems={props.inboxState.Inbox.InboxItems} InboxMessages={props.inboxState.Inbox.InboxMessages} />
       </div >
     </BrowserRouter>
   );

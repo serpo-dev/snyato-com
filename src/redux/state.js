@@ -24,4 +24,14 @@ let state = {
     }
 }
 
+// add message from the Inbox to the state database
+
+export let addMessage = (message) => {
+    let count = state.Inbox.InboxMessages.length;
+    state.Inbox.InboxMessages[count] = { id: {count}, text: {message}}
+    alert('add')
+    console.log(state.Inbox.InboxMessages)
+}
+
+
 export default state; 

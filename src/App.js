@@ -10,7 +10,6 @@ function App(props) {
       <Header />
       <Navbar />
       <Pages
-        addMessage={props.addMessage}
         InboxItems={props.inboxState.Inbox.InboxItems}
         InboxMessages={props.inboxState.Inbox.InboxMessages} />
     </div >

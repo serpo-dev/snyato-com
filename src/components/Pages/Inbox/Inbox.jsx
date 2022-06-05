@@ -2,6 +2,7 @@ import React from "react";
 import stylesheet from './Inbox.module.css'
 import ChatItem from './ChatItem/ChatItem'
 import Message from "./Message/Message";
+import { addMessage } from "../../../redux/state";
 
 
 // yeah :)) i know this component is not a single responsibility function. I'm really sorry about that(( 
@@ -14,14 +15,9 @@ const Inbox = (props) => {
     let i = props.InboxItems.map((object, i) => <ChatItem key={i} name={object.name} id={object.id} />)
     let m = props.InboxMessages.map((message, i) => <Message key={i} id={message.id} text={message.text} />)
 
-    // receiving message from the textarea and sending it to the database
+    // addMessage
 
     let createdMessage = React.createRef();
-
-    const addMessage = (createdMessage) => {
-        props.addMessage = createdMessage.current.value;
-    }
-
 
     return (
         <div>

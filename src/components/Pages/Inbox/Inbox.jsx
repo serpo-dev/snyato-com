@@ -2,7 +2,6 @@ import React from "react";
 import stylesheet from './Inbox.module.css'
 import ChatItem from './ChatItem/ChatItem'
 import Message from "./Message/Message";
-import { addMessage } from "../../../redux/state";
 
 
 // yeah :)) i know this component is not a single responsibility function. I'm really sorry about that(( 
@@ -19,6 +18,10 @@ const Inbox = (props) => {
 
     let createdMessage = React.createRef();
 
+    let processingMessage = () => {
+        props.addMessage(createdMessage.current.value)
+    }
+
     return (
         <div>
             <div className={stylesheet.messages}>
@@ -28,7 +31,7 @@ const Inbox = (props) => {
                 <div className={stylesheet.dialogs}>
                     <div className={stylesheet.textarea}>
                         <textarea ref={createdMessage}>Hi, dude!</textarea>
-                        <button onClick={addMessage}>Send</button>
+                        <button onClick={processingMessage}>Send</button>
                     </div>
                     <div className={stylesheet.mItems}>
                         <br />

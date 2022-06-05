@@ -11,7 +11,8 @@ function App(props) {
       <Navbar />
       <Pages
         InboxItems={props.inboxState.Inbox.InboxItems}
-        InboxMessages={props.inboxState.Inbox.InboxMessages} />
+        InboxMessages={props.inboxState.Inbox.InboxMessages}
+        addMessage={props.addMessage} />
     </div >
   );
 }

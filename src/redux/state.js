@@ -1,12 +1,20 @@
 import chats from './data/inboxItems.json';
-// import messages from './data/inboxMessages.json'
+
+
+// add message from the Inbox to the state database
+
+export let addMessage = (message) => {
+    let count = state.Inbox.InboxMessages.length;
+    state.Inbox.InboxMessages[count] = { id: `${count + 1}`, text: `${message}` }
+    alert('add')
+    console.log(state.Inbox.InboxMessages)
+}
 
 
 
 let state = {
     Inbox: {
         InboxItems: chats,
-        // InboxMessages: messages
         InboxMessages: [
             {
                 id: "1",
@@ -22,15 +30,6 @@ let state = {
             }
         ]
     }
-}
-
-// add message from the Inbox to the state database
-
-export let addMessage = (message) => {
-    let count = state.Inbox.InboxMessages.length;
-    state.Inbox.InboxMessages[count] = { id: {count}, text: {message}}
-    alert('add')
-    console.log(state.Inbox.InboxMessages)
 }
 
 

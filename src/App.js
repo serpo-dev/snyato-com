@@ -3,7 +3,7 @@ import './App.css'
 import Header from './components/Header/Header'
 import Navbar from './components/Navbar/Navbar'
 import Pages from './components/Pages/Pages'
-import { RenderPage } from './redux/render'
+import { RenderPage } from './state'
 
 function App(props) {
   return (

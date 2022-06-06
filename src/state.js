@@ -1,11 +1,13 @@
-import chats from './data/inboxItems.json';
+import chats from './redux/data/inboxItems.json';
+import { loadPage } from './render';
 
 
 // add message from the Inbox to the state database
 
-export let addMessage = (message) => {
+export const RenderPage = (message) => {
     let count = state.Inbox.InboxMessages.length;
     state.Inbox.InboxMessages[count] = { id: `${count + 1}`, text: `${message}` }
+    loadPage(state);
 }
 
 

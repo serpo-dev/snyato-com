@@ -8,10 +8,10 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
 
-export let loadPage = (x) => {
+export let loadPage = (state) => {
     root.render(
         <BrowserRouter>
-            <App inboxState={x} defaultText={defaultText} singleCharacterEnter={singleCharacterEnter} addMessage={addMessage} />
+            <App inboxState={state} defaultText={defaultText} singleCharacterEnter={singleCharacterEnter} addMessage={addMessage} />
         </BrowserRouter>
     );
 }

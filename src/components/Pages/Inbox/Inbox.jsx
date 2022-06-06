@@ -22,9 +22,9 @@ const Inbox = (props) => {
 
     let createdMessage = React.createRef();
 
-    let processingMessage = () => { props.addMessage(createdMessage.current.value)}
+    let processingMessage = () => { props.addMessage(createdMessage.current.value) }
 
-    let changingText = () => {props.singleCharacterEnter(createdMessage.current.value)}
+    let changingText = () => { props.singleCharacterEnter(createdMessage.current.value) }
 
 
     return (

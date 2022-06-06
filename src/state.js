@@ -6,6 +6,7 @@ import chats from './redux/data/inboxItems.json';
 export let addMessage = (message) => {
     let count = state.Inbox.InboxMessages.length;
     state.Inbox.InboxMessages[count] = { id: `${count + 1}`, text: `${message}` }
+    defaultText = ''
     Reload(state);
 }
 
@@ -15,7 +16,7 @@ export let singleCharacterEnter = (updatedString) => {
     Reload(state);
 }
 
-let Reload = () => {}
+let Reload = () => { }
 
 export let linkPair = (observer) => {
     Reload = observer;

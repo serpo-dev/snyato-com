@@ -4,7 +4,7 @@ import { loadPage } from './render';
 
 // add message from the Inbox to the state database
 
-export const RenderPage = (message) => {
+export const addMessage = (message) => {
     let count = state.Inbox.InboxMessages.length;
     state.Inbox.InboxMessages[count] = { id: `${count + 1}`, text: `${message}` }
     loadPage(state);

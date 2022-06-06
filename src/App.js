@@ -3,7 +3,6 @@ import './App.css'
 import Header from './components/Header/Header'
 import Navbar from './components/Navbar/Navbar'
 import Pages from './components/Pages/Pages'
-import { RenderPage } from './state'
 
 function App(props) {
   return (
@@ -13,7 +12,7 @@ function App(props) {
       <Pages
         InboxItems={props.inboxState.Inbox.InboxItems}
         InboxMessages={props.inboxState.Inbox.InboxMessages}
-        addMessage={RenderPage} />
+        addMessage={props.addMessage} />
     </div >
   );
 }

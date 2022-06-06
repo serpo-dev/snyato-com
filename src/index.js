@@ -6,11 +6,7 @@ import state from './redux/state'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-root.render(
-    <BrowserRouter>
-        <App inboxState={state} />
-    </BrowserRouter>
-);
+
 
 export let loadPage = () => {
     root.render(
@@ -19,3 +15,5 @@ export let loadPage = () => {
         </BrowserRouter>
     );
 }
+
+loadPage();

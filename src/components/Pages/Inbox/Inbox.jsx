@@ -18,7 +18,7 @@ const Inbox = (props) => {
 
     let createdMessage = React.createRef();
 
-    let processingMessage = () => props.addMessage(createdMessage.current.value)
+    let processingMessage = () => {props.addMessage(createdMessage.current.value); createdMessage.current.value=''}
 
     return (
         <div>
@@ -28,7 +28,7 @@ const Inbox = (props) => {
                 </div>
                 <div className={stylesheet.dialogs}>
                     <div className={stylesheet.textarea}>
-                        <textarea ref={createdMessage}>Hi, dude!</textarea>
+                        <textarea ref={createdMessage}>Write here your message...</textarea>
                         <button onClick={processingMessage}>Send</button>
                     </div>
                     <div className={stylesheet.mItems}>

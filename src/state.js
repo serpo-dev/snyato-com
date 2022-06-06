@@ -10,9 +10,17 @@ export const addMessage = (message) => {
     loadPage(state);
 }
 
+export let defaultText = 'Write here what you want to say...';
+export let singleCharacterEnter = (updatedString) => {
+    defaultText = updatedString;
+    loadPage(state);
+}
 
 
-let state = {
+
+
+
+export let state = {
     Inbox: {
         InboxItems: chats,
         InboxMessages: [
@@ -31,6 +39,3 @@ let state = {
         ]
     }
 }
-
-
-export default state; 

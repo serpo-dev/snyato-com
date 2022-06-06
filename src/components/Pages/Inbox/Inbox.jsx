@@ -9,16 +9,23 @@ import Message from "./Message/Message";
 
 const Inbox = (props) => {
 
+
+
     // converting data array of people and messages to required JSX state
 
     let i = props.InboxItems.map((object, i) => <ChatItem key={i} name={object.name} id={object.id} />)
     let m = props.InboxMessages.map((message, i) => <Message key={i} id={message.id} text={message.text} />)
 
+
+
     // addMessage
 
     let createdMessage = React.createRef();
 
-    let processingMessage = () => {props.addMessage(createdMessage.current.value); createdMessage.current.value=''}
+    let processingMessage = () => { props.addMessage(createdMessage.current.value)}
+
+    let changingText = () => {props.singleCharacterEnter(createdMessage.current.value)}
+
 
     return (
         <div>
@@ -28,7 +35,7 @@ const Inbox = (props) => {
                 </div>
                 <div className={stylesheet.dialogs}>
                     <div className={stylesheet.textarea}>
-                        <textarea ref={createdMessage}>Write here your message...</textarea>
+                        <textarea onChange={changingText} ref={createdMessage} value={props.defaultText} />
                         <button onClick={processingMessage}>Send</button>
                     </div>
                     <div className={stylesheet.mItems}>

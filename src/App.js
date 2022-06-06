@@ -12,7 +12,9 @@ function App(props) {
       <Pages
         InboxItems={props.inboxState.Inbox.InboxItems}
         InboxMessages={props.inboxState.Inbox.InboxMessages}
-        addMessage={props.addMessage} />
+        addMessage={props.addMessage}
+        defaultText={props.defaultText}
+        singleCharacterEnter={props.singleCharacterEnter} />
     </div >
   );
 }

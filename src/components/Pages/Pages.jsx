@@ -18,7 +18,9 @@ const Pages = (props) => {
                 <Route path='/im/*' element={<Inbox
                     InboxItems={props.InboxItems}
                     InboxMessages={props.InboxMessages}
-                    addMessage={props.addMessage} />} />
+                    addMessage={props.addMessage}
+                    defaultText={props.defaultText}
+                    singleCharacterEnter={props.singleCharacterEnter} />} />
                 <Route path='/user/*' element={<Profile />} />
             </Routes>
         </div>

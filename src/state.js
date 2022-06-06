@@ -1,22 +1,25 @@
 import chats from './redux/data/inboxItems.json';
-import { loadPage } from './render';
 
 
 // add message from the Inbox to the state database
 
-export const addMessage = (message) => {
+export let addMessage = (message) => {
     let count = state.Inbox.InboxMessages.length;
     state.Inbox.InboxMessages[count] = { id: `${count + 1}`, text: `${message}` }
-    loadPage(state);
+    Reload(state);
 }
 
 export let defaultText = 'Write here what you want to say...';
 export let singleCharacterEnter = (updatedString) => {
     defaultText = updatedString;
-    loadPage(state);
+    Reload(state);
 }
 
+let Reload = () => {}
 
+export let linkPair = (observer) => {
+    Reload = observer;
+}
 
 
 

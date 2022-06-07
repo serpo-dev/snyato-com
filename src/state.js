@@ -27,7 +27,7 @@ export let store = {
             ]
         }
     },
-    currentValueOfTextArea: `Write the thoughts you've always wanted to say...`,
+    currentValueOfTextArea: '',
     _reloadApp() { },
     subscriber(observer) {
         this._reloadApp = observer;

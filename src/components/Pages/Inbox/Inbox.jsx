@@ -35,7 +35,7 @@ const Inbox = (props) => {
                 </div>
                 <div className={stylesheet.dialogs}>
                     <div className={stylesheet.textarea}>
-                        <textarea onChange={callOneByOneCharachtersEnteringActionCreator} ref={textAreaConverterHTMLtoJS} value={props.defaultText} />
+                        <textarea onChange={callOneByOneCharachtersEnteringActionCreator} ref={textAreaConverterHTMLtoJS} placeholder='Enter here your message' value={props.defaultText} />
                         <button onClick={callAddNewMessageActionCreator}>Send</button>
                     </div>
                     <div className={stylesheet.mItems}>

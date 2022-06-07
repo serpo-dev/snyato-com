@@ -13,18 +13,30 @@ const Inbox = (props) => {
 
     // converting data array of people and messages to required JSX state
 
-    let i = props.InboxItems.map((object, i) => <ChatItem key={i} name={object.name} id={object.id} />)
-    let m = props.InboxMessages.map((message, i) => <Message key={i} id={message.id} text={message.text} />)
+    let i = props.InboxItems.map((item, i) => <ChatItem key={i} name={item.name} id={item.id} />)
+    let m = props.InboxMessages.map((message, i) => <Message key={i} id={message.id} text={message.text} />).reverse()
 
+    console.log(m)
 
+    let textAreaConverterHTMLtoJS = React.createRef();
 
-    // addMessage
+    let addNewMessageActionCreator = () => {
+        props.dispatch(
+            {
+                type: 'ADD-NEW-MESSAGE',
+                desiredValue: textAreaConverterHTMLtoJS.current.value
+            }
+        )
+    }
 
-    let createdMessage = React.createRef();
-
-    let processingMessage = () => { props.addMessage(createdMessage.current.value) }
-
-    let changingText = () => { props.singleCharacterEnter(createdMessage.current.value) }
+    let oneByOneCharachtersEnteringActionCreator = () => {
+        props.dispatch(
+            {
+                type: 'ONE-BY-ONE-CHARACHTERS-ENTERING',
+                desiredValue: textAreaConverterHTMLtoJS.current.value
+            }
+        )
+    }
 
 
     return (
@@ -35,8 +47,8 @@ const Inbox = (props) => {
                 </div>
                 <div className={stylesheet.dialogs}>
                     <div className={stylesheet.textarea}>
-                        <textarea onChange={changingText} ref={createdMessage} value={props.defaultText} />
-                        <button onClick={processingMessage}>Send</button>
+                        <textarea onChange={oneByOneCharachtersEnteringActionCreator} ref={textAreaConverterHTMLtoJS} value={props.defaultText} />
+                        <button onClick={addNewMessageActionCreator}>Send</button>
                     </div>
                     <div className={stylesheet.mItems}>
                         <br />

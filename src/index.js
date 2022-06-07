@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import { stack } from './state'
+import { store } from './state'
 import App from './App'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -11,11 +11,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 export let loadPage = (state) => {
     root.render(
         <BrowserRouter>
-            <App inboxState={state} defaultText={stack.getDefaultText()} singleCharacterEnter={stack.singleCharacterEnter.bind(stack)} addMessage={stack.addMessage.bind(stack)} />
+            <App inboxState={state} defaultText={store.getDefaultText()} dispatch={store.dispatch.bind(store)} />
         </BrowserRouter>
     );
 }
 
-loadPage(stack.getState());
+loadPage(store.getState());
 
-stack.subscriber(loadPage);
+store.subscriber(loadPage);

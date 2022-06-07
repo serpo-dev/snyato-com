@@ -1,7 +1,7 @@
 import chats from './redux/data/inboxItems.json';
 
 
-export let stack = {
+export let store = {
     _state: {
         Inbox: {
             InboxItems: chats,
@@ -21,25 +21,33 @@ export let stack = {
             ]
         }
     },
-    defaultText: 'Write here what you want to say...',
+    currentValueOfTextArea: `Write the thoughts you've always wanted to say...`,
+    _reloadApp() { },
     subscriber(observer) {
-        this.Reload = observer;
+        this._reloadApp = observer;
     },
-    singleCharacterEnter(updatedString) {
-        this.defaultText = updatedString;
-        this.Reload(this._state);
-    },
-    addMessage(message) {
-        let count = this._state.Inbox.InboxMessages.length;
-        this._state.Inbox.InboxMessages[count] = { id: `${count + 1}`, text: `${message}` };
-        this.defaultText = '';
-        this.Reload(this._state);
-    },
-    Reload() { },
     getState() {
         return this._state;
     },
     getDefaultText() {
-        return this.defaultText;
+        return this.currentValueOfTextArea;
+    },
+    dispatch(action) {
+        if (action.type === 'ONE-BY-ONE-CHARACHTERS-ENTERING') {
+            this.currentValueOfTextArea = action.desiredValue;
+            this._reloadApp(this._state);
+        } else if (action.type === 'ADD-NEW-MESSAGE') {
+            let count = this._state.Inbox.InboxMessages.length;
+            this._state.Inbox.InboxMessages[count] =
+            {
+                id: `${count + 1}`,
+                text: `${action.desiredValue}`
+            };
+            console.log(action.desiredValue)
+            console.log(this._state.Inbox.InboxMessages)
+            this.currentValueOfTextArea = '';
+            this._reloadApp(this._state);
+            console.log(this._state)
+        }
     }
 }

@@ -1,6 +1,9 @@
 import chats from './redux/data/inboxItems.json';
 
 
+export let oneByOneCharachtersEnteringActionCreator = (desiredValue) => ({ type: 'ONE-BY-ONE-CHARACHTERS-ENTERING', desiredValue: desiredValue })
+export let addNewMessageActionCreator = (desiredValue) => ({ type: 'ADD-NEW-MESSAGE', desiredValue: desiredValue })
+
 export let store = {
     _state: {
         Inbox: {
@@ -43,11 +46,8 @@ export let store = {
                 id: `${count + 1}`,
                 text: `${action.desiredValue}`
             };
-            console.log(action.desiredValue)
-            console.log(this._state.Inbox.InboxMessages)
             this.currentValueOfTextArea = '';
             this._reloadApp(this._state);
-            console.log(this._state)
         }
     }
 }

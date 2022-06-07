@@ -2,10 +2,8 @@ import React from "react";
 import stylesheet from './Inbox.module.css'
 import ChatItem from './ChatItem/ChatItem'
 import Message from "./Message/Message";
+import { oneByOneCharachtersEnteringActionCreator, addNewMessageActionCreator } from './../../../state';
 
-
-// yeah :)) i know this component is not a single responsibility function. I'm really sorry about that(( 
-// I promise you  in future edits I divide this pair of combined actions into two independent functions!!
 
 const Inbox = (props) => {
 
@@ -16,26 +14,16 @@ const Inbox = (props) => {
     let i = props.InboxItems.map((item, i) => <ChatItem key={i} name={item.name} id={item.id} />)
     let m = props.InboxMessages.map((message, i) => <Message key={i} id={message.id} text={message.text} />).reverse()
 
-    console.log(m)
+    // converting data array of people and messages to required JSX state
 
     let textAreaConverterHTMLtoJS = React.createRef();
 
-    let addNewMessageActionCreator = () => {
-        props.dispatch(
-            {
-                type: 'ADD-NEW-MESSAGE',
-                desiredValue: textAreaConverterHTMLtoJS.current.value
-            }
-        )
+    const callOneByOneCharachtersEnteringActionCreator = () => {
+        props.dispatch(oneByOneCharachtersEnteringActionCreator(textAreaConverterHTMLtoJS.current.value));
     }
 
-    let oneByOneCharachtersEnteringActionCreator = () => {
-        props.dispatch(
-            {
-                type: 'ONE-BY-ONE-CHARACHTERS-ENTERING',
-                desiredValue: textAreaConverterHTMLtoJS.current.value
-            }
-        )
+    const callAddNewMessageActionCreator = () => {
+        props.dispatch(addNewMessageActionCreator(textAreaConverterHTMLtoJS.current.value));
     }
 
 
@@ -47,8 +35,8 @@ const Inbox = (props) => {
                 </div>
                 <div className={stylesheet.dialogs}>
                     <div className={stylesheet.textarea}>
-                        <textarea onChange={oneByOneCharachtersEnteringActionCreator} ref={textAreaConverterHTMLtoJS} value={props.defaultText} />
-                        <button onClick={addNewMessageActionCreator}>Send</button>
+                        <textarea onChange={callOneByOneCharachtersEnteringActionCreator} ref={textAreaConverterHTMLtoJS} value={props.defaultText} />
+                        <button onClick={callAddNewMessageActionCreator}>Send</button>
                     </div>
                     <div className={stylesheet.mItems}>
                         <br />

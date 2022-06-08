@@ -5,12 +5,12 @@ export let currentValueOfTextArea = '';
 export let PostReducer = (state, action) => {
     switch (action.type) {
         case ADD_NEW_COMMENT_TO_THE_POST:
-            let count = state.posts[action.keyParentPost].length;
+            let count = state.posts[action.keyParentPost - 1].comments.length;
             let comment = {
-                id: `"${count}"`,
-                text: `"${action.desirableValue}"`
+                id: `${count + 1}`,
+                text: `${action.desirableValue}`
             };
-            state.posts.push(comment);
+            state.posts[action.keyParentPost - 1].comments.push(comment);
             return state;
         default:
             return state;

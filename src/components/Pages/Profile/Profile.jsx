@@ -4,7 +4,6 @@ import Post from './Post/Post'
 import { AddNewPostActionCreator } from "../../../redux/ProfileReducer";
 
 const Profile = (props) => {
-
     let posts = props.Profile.posts.map((post, i) => <Post key={i} post={post} dispatch={props.dispatch} />).reverse()
 
     let textAreaConverterHTMLtoJS = React.createRef();

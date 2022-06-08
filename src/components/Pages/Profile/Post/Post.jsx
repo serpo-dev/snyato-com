@@ -13,7 +13,7 @@ let Post = (props) => {
 
     const callAddCommentActionCreator = () => {
         let commentProperties = {
-            keyParentPost: props.key,
+            keyParentPost: props.post.id,
             desirableValue: textAreaConverterHTMLtoJS.current.value
         }
         props.dispatch(AddCommentActionCreator(commentProperties));

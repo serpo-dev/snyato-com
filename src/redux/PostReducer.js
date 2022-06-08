@@ -7,8 +7,8 @@ export let PostReducer = (state, action) => {
         case ADD_NEW_COMMENT_TO_THE_POST:
             let count = state.posts[action.keyParentPost - 1].comments.length;
             let comment = {
-                id: `${count + 1}`,
-                text: `${action.desirableValue}`
+                id: count + 1,
+                text: action.desirableValue
             };
             state.posts[action.keyParentPost - 1].comments.push(comment);
             return state;

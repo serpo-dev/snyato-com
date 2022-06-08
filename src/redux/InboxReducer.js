@@ -12,8 +12,8 @@ export let InboxReducer = (state, action) => {
             let count = state.Messages.length;
             state.Messages[count] =
             {
-                id: `${count + 1}`,
-                text: `${action.desiredValue}`
+                id: count + 1,
+                text: action.desiredValue
             };
             currentValueOfTextArea = '';
             return state;

@@ -1,9 +1,15 @@
 import React from "react";
 import stylesheet from './Profile.module.css'
 
-const Profile = () => {
+const Profile = (props) => {
+
+    let posts = 'a';
+
+
     return (
-        <p>Your profile is here</p>
+        <div className={stylesheet.Prolile}>
+            {posts}
+        </div>
     )
 }
 

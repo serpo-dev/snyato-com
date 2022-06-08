@@ -10,8 +10,8 @@ function App(props) {
       <Header />
       <Navbar />
       <Pages
-        InboxItems={props.inboxState.Inbox.InboxItems}
-        InboxMessages={props.inboxState.Inbox.InboxMessages}
+        Person={props.inboxState.Inbox.Person}
+        Messages={props.inboxState.Inbox.Messages}
         defaultText={props.defaultText}
         dispatch={props.dispatch} />
     </div >

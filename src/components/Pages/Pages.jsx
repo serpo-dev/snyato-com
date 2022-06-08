@@ -16,8 +16,8 @@ const Pages = (props) => {
                 <Route path='/search/*' element={<Discover />} />
                 <Route path='/upload/*' element={<Add />} />
                 <Route path='/im/*' element={<Inbox
-                    InboxItems={props.InboxItems}
-                    InboxMessages={props.InboxMessages}
+                    Person={props.Person}
+                    Messages={props.Messages}
                     defaultText={props.defaultText}
                     dispatch={props.dispatch}
                 />} />

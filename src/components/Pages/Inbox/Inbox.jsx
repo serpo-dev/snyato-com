@@ -2,7 +2,7 @@ import React from "react";
 import stylesheet from './Inbox.module.css'
 import ChatItem from './ChatItem/ChatItem'
 import Message from "./Message/Message";
-import { oneByOneCharachtersEnteringActionCreator, addNewMessageActionCreator } from './../../../state';
+import { oneByOneCharachtersEnteringActionCreator, addNewMessageActionCreator } from './../../../redux/InboxReducer';
 
 
 const Inbox = (props) => {
@@ -11,8 +11,8 @@ const Inbox = (props) => {
 
     // converting data array of people and messages to required JSX state
 
-    let i = props.InboxItems.map((item, i) => <ChatItem key={i} name={item.name} id={item.id} />)
-    let m = props.InboxMessages.map((message, i) => <Message key={i} id={message.id} text={message.text} />).reverse()
+    let p = props.Person.map((item, i) => <ChatItem key={i} name={item.name} id={item.id} />)
+    let m = props.Messages.map((message, i) => <Message key={i} id={message.id} text={message.text} />).reverse()
 
     // converting data array of people and messages to required JSX state
 
@@ -27,11 +27,13 @@ const Inbox = (props) => {
     }
 
 
+
+
     return (
         <div>
             <div className={stylesheet.messages}>
                 <div className={stylesheet.people}>
-                    {i}
+                    {p}
                 </div>
                 <div className={stylesheet.dialogs}>
                     <div className={stylesheet.textarea}>

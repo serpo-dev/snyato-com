@@ -7,8 +7,8 @@ import App from './App'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
-
 export let loadPage = (state) => {
+
     root.render(
         <BrowserRouter>
             <App inboxState={state} defaultText={store.getDefaultText()} dispatch={store.dispatch.bind(store)} />

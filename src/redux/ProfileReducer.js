@@ -1,4 +1,4 @@
-import { createRoutesFromChildren } from "react-router-dom";
+import { PostReducer } from "./PostReducer";
 
 const ADD_NEW_POST = 'ADD-NEW-POST'
 
@@ -16,7 +16,7 @@ export const ProfileReducer = (state, action) => {
             state.posts.push(item);
             return state;
         default:
-            return state;
+            PostReducer(state, action)
     }
 }
 

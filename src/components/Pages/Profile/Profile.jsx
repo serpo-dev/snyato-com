@@ -1,12 +1,11 @@
 import React from "react";
 import stylesheet from './Profile.module.css'
 import Post from './Post/Post'
-import { currentValueOfTextArea, AddNewPostActionCreator } from "../../../redux/ProfileReducer";
+import { AddNewPostActionCreator } from "../../../redux/ProfileReducer";
 
 const Profile = (props) => {
 
-    let posts = props.Profile.posts.map((post, i) => <Post key={i} post={post} />).reverse()
-    console.log(posts)
+    let posts = props.Profile.posts.map((post, i) => <Post key={i} post={post} dispatch={props.dispatch} />).reverse()
 
     let textAreaConverterHTMLtoJS = React.createRef();
 
@@ -18,7 +17,7 @@ const Profile = (props) => {
     return (
         <div className={stylesheet.Prolile}>
             <div className={stylesheet.inputBox}>
-                <textarea 
+                <textarea
                     ref={textAreaConverterHTMLtoJS}
                     placeholder="What's the new?"
                 />

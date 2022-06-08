@@ -27,7 +27,17 @@ export let store = {
             posts: [
                 {
                     id: '1',
-                    text: `Hey, world! I use a LC to save a moments dear to my heart.`
+                    text: `Hey, world! I use a LC to save a moments dear to my heart.`,
+                    comments: [
+                        {
+                            id: '1',
+                            text: `Wow, it's so cool, dude. `
+                        },
+                        {
+                            id: '2',
+                            text: `Good luck!`
+                        }
+                    ]
                 }
             ]
         }
@@ -41,7 +51,7 @@ export let store = {
     },
     dispatch(action) {
         this._state.Inbox = InboxReducer(this._state.Inbox, action);
-        // this._state.Profile = ProfileReducer(this._state.Profile, action);
+        this._state.Profile = ProfileReducer(this._state.Profile, action);
         this._reloadApp(this._state);
     }
 }

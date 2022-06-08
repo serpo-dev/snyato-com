@@ -16,10 +16,13 @@ const Pages = (props) => {
                 <Route path='/search/*' element={<Discover />} />
                 <Route path='/upload/*' element={<Add />} />
                 <Route path='/im/*' element={<Inbox
-                    state={props.state}
+                    Inbox={props.state.Inbox}
                     dispatch={props.dispatch}
                 />} />
-                <Route path='/user/*' element={<Profile />} />
+                <Route path='/user/*' element={<Profile
+                    Profile={props.state.Profile}
+                    dispatch={props.dispatch}
+                />} />
             </Routes>
         </div>
     )

@@ -11,7 +11,7 @@ export let loadPage = (state) => {
 
     root.render(
         <BrowserRouter>
-            <App inboxState={state} defaultText={store.getDefaultText()} dispatch={store.dispatch.bind(store)} />
+            <App state={state} dispatch={store.dispatch.bind(store)} />
         </BrowserRouter>
     );
 }

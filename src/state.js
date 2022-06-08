@@ -39,9 +39,6 @@ export let store = {
     getState() {
         return this._state;
     },
-    getDefaultText() {
-        return this.currentValueOfTextArea;
-    },
     dispatch(action) {
         this._state.Inbox = InboxReducer(this._state.Inbox, action);
         // this._state.Profile = ProfileReducer(this._state.Profile, action);

@@ -2,7 +2,7 @@ import React from "react";
 import stylesheet from './Inbox.module.css'
 import ChatItem from './ChatItem/ChatItem'
 import Message from "./Message/Message";
-import { oneByOneCharachtersEnteringActionCreator, addNewMessageActionCreator } from './../../../redux/InboxReducer';
+import { oneByOneCharachtersEnteringActionCreator, addNewMessageActionCreator, currentValueOfTextArea } from './../../../redux/InboxReducer';
 
 
 const Inbox = (props) => {
@@ -11,8 +11,9 @@ const Inbox = (props) => {
 
     // converting data array of people and messages to required JSX state
 
-    let p = props.Person.map((item, i) => <ChatItem key={i} name={item.name} id={item.id} />)
-    let m = props.Messages.map((message, i) => <Message key={i} id={message.id} text={message.text} />).reverse()
+
+    let p = props.state.Inbox.Person.map((item, i) => <ChatItem key={i} name={item.name} id={item.id} />)
+    let m = props.state.Inbox.Messages.map((message, i) => <Message key={i} id={message.id} text={message.text} />).reverse()
 
     // converting data array of people and messages to required JSX state
 
@@ -37,7 +38,7 @@ const Inbox = (props) => {
                 </div>
                 <div className={stylesheet.dialogs}>
                     <div className={stylesheet.textarea}>
-                        <textarea onChange={callOneByOneCharachtersEnteringActionCreator} ref={textAreaConverterHTMLtoJS} placeholder='Enter here your message' value={props.defaultText} />
+                        <textarea onChange={callOneByOneCharachtersEnteringActionCreator} ref={textAreaConverterHTMLtoJS} placeholder='Enter here your message' value={currentValueOfTextArea} />
                         <button onClick={callAddNewMessageActionCreator}>Send</button>
                     </div>
                     <div className={stylesheet.mItems}>

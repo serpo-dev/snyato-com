@@ -1,10 +1,9 @@
 const ONE_BY_ONE_CHARACHTERS_ENTERING = 'ONE-BY-ONE-CHARACHTERS-ENTERING';
 const ADD_NEW_MESSAGE = 'ADD-NEW-MESSAGE';
 
-let currentValueOfTextArea = '';
+export let currentValueOfTextArea = '';
 
 export let InboxReducer = (state, action) => {
-    console.log(state + action)
     switch (action.type) {
         case ONE_BY_ONE_CHARACHTERS_ENTERING:
             currentValueOfTextArea = action.desiredValue;
@@ -17,7 +16,6 @@ export let InboxReducer = (state, action) => {
                 text: `${action.desiredValue}`
             };
             currentValueOfTextArea = '';
-
             return state;
         default:
             return state;

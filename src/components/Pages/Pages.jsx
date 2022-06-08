@@ -16,9 +16,7 @@ const Pages = (props) => {
                 <Route path='/search/*' element={<Discover />} />
                 <Route path='/upload/*' element={<Add />} />
                 <Route path='/im/*' element={<Inbox
-                    Person={props.Person}
-                    Messages={props.Messages}
-                    defaultText={props.defaultText}
+                    state={props.state}
                     dispatch={props.dispatch}
                 />} />
                 <Route path='/user/*' element={<Profile />} />

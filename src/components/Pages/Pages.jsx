@@ -12,7 +12,7 @@ const Pages = (props) => {
     return (
         <div className={stylesheet.Pages}>
             <Routes>
-                <Route path='/home/*' element={<Home />} />
+                <Route path='/*' element={<Home />} />
                 <Route path='/search/*' element={<Discover />} />
                 <Route path='/upload/*' element={<Add />} />
                 <Route path='/im/*' element={<Inbox

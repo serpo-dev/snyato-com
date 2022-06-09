@@ -5,7 +5,6 @@ import Navbar from './components/Navbar/Navbar'
 import Pages from './components/Pages/Pages'
 
 function App(props) {
-  console.log(props)
   return (
     <div className="appWrapper">
       <Header />

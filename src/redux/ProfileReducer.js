@@ -9,14 +9,13 @@ export const ProfileReducer = (state, action) => {
         case ADD_NEW_POST:
             let count = state.posts.length;
             let item = {
-                id: count + 1,
-                text: action.desiredValue,
+                id: `'${count}'`,
+                text: `"${action.desiredValue}"`,
                 comments: []
             }
             state.posts.push(item);
             return state;
         default:
-            PostReducer(state, action);
             return state;
     }
 }

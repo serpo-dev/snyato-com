@@ -5,27 +5,27 @@ import { AddCommentActionCreator } from './../../../../redux/PostReducer'
 
 let Post = (props) => {
 
-    let textAreaConverterHTMLtoJS = React.createRef();
+    // let textAreaConverterHTMLtoJS = React.createRef();
 
-    let comments = props.post.comments.map((comment, i) => <Comment key={i} comment={comment} />)
+    // let comments = props.post.comments.map((comment, i) => <Comment key={i} comment={comment} />)
 
 
 
-    const callAddCommentActionCreator = () => {
-        let commentProperties = {
-            keyParentPost: props.post.id,
-            desirableValue: textAreaConverterHTMLtoJS.current.value
-        }
-        props.dispatch(AddCommentActionCreator(commentProperties));
-        textAreaConverterHTMLtoJS.current.value = '';
-    }
+    // const callAddCommentActionCreator = () => {
+    //     let commentProperties = {
+    //         keyParentPost: props.key,
+    //         desirableValue: textAreaConverterHTMLtoJS.current.value
+    //     }
+    //     props.dispatch(AddCommentActionCreator(commentProperties));
+    //     textAreaConverterHTMLtoJS.current.value = '';
+    // }
 
     return (
         <div className={stylesheet.Post}>
             <div>
                 {props.post.text}
             </div>
-            <br />
+            {/* <br />
             <div>
                 <p>Likes: </p>{props.post.likes}
             </div>
@@ -41,7 +41,7 @@ let Post = (props) => {
                 <div>
                     {comments}
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

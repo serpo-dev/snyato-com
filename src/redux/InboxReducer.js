@@ -11,15 +11,15 @@ const initialState = {
     Person: chats,
     Messages: [
         {
-            id: "1",
+            id: 1,
             text: "- It's not easy to live your own way."
         },
         {
-            id: "2",
+            id: 2,
             text: "Because you can't blame anybody but yourself."
         },
         {
-            id: "3",
+            id: 3,
             text: "- I don't want to be a burden! I want to be useful."
         }
     ]
@@ -32,11 +32,11 @@ export let InboxReducer = (state = initialState, action) => {
             return state;
         case ADD_NEW_MESSAGE:
             let count = state.Messages.length;
-            state.Messages[count] =
-            {
-                id: `${count + 1}`,
-                text: `${action.desiredValue}`
+            let item = {
+                id: count + 1,
+                text: action.desiredValue
             };
+            state.Messages.push(item);
             currentValueOfTextArea = '';
             return state;
         default:

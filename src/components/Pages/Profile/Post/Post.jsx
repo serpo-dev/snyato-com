@@ -23,7 +23,9 @@ let Post = (props) => {
     return (
         <div className={stylesheet.Post}>
             <div>
-                {props.post.text}
+                <p>
+                    {props.text}
+                </p>
             </div>
             {/* <br />
             <div>

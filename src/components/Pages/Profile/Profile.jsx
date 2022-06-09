@@ -28,7 +28,10 @@ const Profile = (props) => {
                 />
                 <button onClick={callAddNewPostActionCreator}>Publish</button>
             </div>
-            <div>{posts}</div>
+            <div>
+                <br />
+                {posts}
+            </div>
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import stylesheet from './Post.module.css'
-import Comment from './Comment/Comment'
-import { AddCommentActionCreator } from './../../../../redux/PostReducer'
+// import Comment from './Comment/Comment'
+// import { AddCommentActionCreator } from './../../../../redux/PostReducer'
 
 let Post = (props) => {
 

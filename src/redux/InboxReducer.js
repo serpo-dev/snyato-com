@@ -1,9 +1,31 @@
+import chats from './data/inboxItems.json';
+
+
+
 const ONE_BY_ONE_CHARACHTERS_ENTERING = 'ONE-BY-ONE-CHARACHTERS-ENTERING';
 const ADD_NEW_MESSAGE = 'ADD-NEW-MESSAGE';
 
 export let currentValueOfTextArea = '';
 
-export let InboxReducer = (state, action) => {
+const initialState = {
+    Person: chats,
+    Messages: [
+        {
+            id: "1",
+            text: "- It's not easy to live your own way."
+        },
+        {
+            id: "2",
+            text: "Because you can't blame anybody but yourself."
+        },
+        {
+            id: "3",
+            text: "- I don't want to be a burden! I want to be useful."
+        }
+    ]
+}
+
+export let InboxReducer = (state = initialState, action) => {
     switch (action.type) {
         case ONE_BY_ONE_CHARACHTERS_ENTERING:
             currentValueOfTextArea = action.desiredValue;

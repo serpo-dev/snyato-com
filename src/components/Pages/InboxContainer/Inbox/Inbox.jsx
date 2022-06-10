@@ -14,8 +14,8 @@ const Inbox = (props) => {
     let m = props.data.m;
     let currentValueOfTextArea = props.data.currentValueOfTextArea;
 
-    const callOneByOneCharachtersEnteringActionCreator = () => { props.callOneByOneCharachtersEnteringActionCreator(textAreaConverterHTMLtoJS.current.value) };
-    const callAddNewMessageActionCreator = () => { props.callAddNewMessageActionCreator(textAreaConverterHTMLtoJS.current.value) };
+    const callOneByOneCharachtersEnteringActionCreator = () => { props.callbacks.callOneByOneCharachtersEnteringActionCreator(textAreaConverterHTMLtoJS.current.value) };
+    const callAddNewMessageActionCreator = () => { props.callbacks.callAddNewMessageActionCreator(textAreaConverterHTMLtoJS.current.value) };
 
 
 

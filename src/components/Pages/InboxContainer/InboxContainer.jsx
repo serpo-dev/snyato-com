@@ -29,10 +29,10 @@ const InboxContainer = (props) => {
         props.store.dispatch(addNewMessageActionCreator(currentValueOfTextArea));
     }
 
-    // const callbacks = {
-    //     callOneByOneCharachtersEnteringActionCreator: callOneByOneCharachtersEnteringActionCreator,
-    //     callAddNewMessageActionCreator: callAddNewMessageActionCreator
-    // }
+    const callbacks = {
+        callOneByOneCharachtersEnteringActionCreator: callOneByOneCharachtersEnteringActionCreator,
+        callAddNewMessageActionCreator: callAddNewMessageActionCreator
+    }
 
 
 
@@ -40,9 +40,7 @@ const InboxContainer = (props) => {
 
         <Inbox
             data={data}
-            // callbacks={callbacks}
-            callOneByOneCharachtersEnteringActionCreator={callOneByOneCharachtersEnteringActionCreator}
-            callAddNewMessageActionCreator={callAddNewMessageActionCreator}
+            callbacks={callbacks}
         />
 
     )

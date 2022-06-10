@@ -1,27 +1,25 @@
 import React from "react";
 import stylesheet from './Profile.module.css'
-import Post from './Post/Post'
-import { currentValueOfTextArea, oneByOneCharachtersEnteringActionCreator, addNewPostActionCreator } from "../../../redux/ProfileReducer";
+
 
 const Profile = (props) => {
 
-    let posts = props.Profile.posts.map((post, i) => <Post key={i} text={post.text} dispatch={props.dispatch} />).reverse();
-
+    // convert HTML object to the JS language
     let textAreaConverterHTMLtoJS = React.createRef();
 
-    const callAddNewPostActionCreator = () => {
-        props.dispatch(addNewPostActionCreator(textAreaConverterHTMLtoJS.current.value));
-    };
+    // exctract props
+    const posts = props.data.posts;
+    const currentValueOfTextArea = props.data.currentValueOfTextArea;
 
-    const calloneByOneCharachtersEnteringActionCreator = () => {
-        props.dispatch(oneByOneCharachtersEnteringActionCreator(textAreaConverterHTMLtoJS.current.value));
-    };
+    const callOneByOneCharachtersEnteringActionCreator = () => props.callbacks.callOneByOneCharachtersEnteringActionCreator(textAreaConverterHTMLtoJS.current.value) 
+    const callAddNewPostActionCreator = () => props.callbacks.callAddNewPostActionCreator(textAreaConverterHTMLtoJS.current.value) 
+
 
     return (
         <div className={stylesheet.Prolile}>
             <div className={stylesheet.inputBox}>
                 <textarea
-                    onChange={calloneByOneCharachtersEnteringActionCreator}
+                    onChange={callOneByOneCharachtersEnteringActionCreator}
                     ref={textAreaConverterHTMLtoJS}
                     placeholder="What's the new?"
                     value={currentValueOfTextArea}

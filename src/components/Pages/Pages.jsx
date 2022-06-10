@@ -15,12 +15,16 @@ const Pages = (props) => {
                 <Route path='/home/*' element={<Home />} />
                 <Route path='/search/*' element={<Discover />} />
                 <Route path='/upload/*' element={<Add />} />
-                <Route path='/im/*' element={<InboxContainer
-                    store={props.store}
-                />} />
-                {/* <Route path='/user/*' element={<ProfileContainer
-                    store={props.store}
-                />} /> */}
+                <Route path='/im/*' element={
+                    <InboxContainer
+                        store={props.store}
+                    />
+                } />
+                <Route path='/user/*' element={
+                    <ProfileContainer
+                        store={props.store}
+                    />
+                } />
             </Routes>
         </div>
     )

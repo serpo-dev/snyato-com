@@ -18,7 +18,7 @@ const InboxContainer = (props) => {
         currentValueOfTextArea: currentValueOfTextArea
     }
 
-    // converting data array of people and messages to required JSX state
+    // get current value of the text area, give it to the action creator and then to the dispatch
 
 
     const callOneByOneCharachtersEnteringActionCreator = (currentValueOfTextArea) => {

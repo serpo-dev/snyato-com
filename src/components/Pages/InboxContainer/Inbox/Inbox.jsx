@@ -1,31 +1,21 @@
 import React from "react";
 import stylesheet from './Inbox.module.css'
-import ChatItem from './ChatItem/ChatItem'
-import Message from "./Message/Message";
-import { oneByOneCharachtersEnteringActionCreator, addNewMessageActionCreator, currentValueOfTextArea } from './../../../redux/InboxReducer';
 
 
 const Inbox = (props) => {
 
-
-
-    // converting data array of people and messages to required JSX state
-
-
-    let p = props.Inbox.Person.map((item, i) => <ChatItem key={i} name={item.name} id={item.id} />)
-    let m = props.Inbox.Messages.map((message, i) => <Message key={i} id={message.id} text={message.text} />).reverse()
-
-    // converting data array of people and messages to required JSX state
+    // convert html to the js object
 
     let textAreaConverterHTMLtoJS = React.createRef();
 
-    const callOneByOneCharachtersEnteringActionCreator = () => {
-        props.dispatch(oneByOneCharachtersEnteringActionCreator(textAreaConverterHTMLtoJS.current.value));
-    }
+    // unpacking props properties
 
-    const callAddNewMessageActionCreator = () => {
-        props.dispatch(addNewMessageActionCreator(textAreaConverterHTMLtoJS.current.value));
-    }
+    let p = props.data.p;
+    let m = props.data.m;
+    let currentValueOfTextArea = props.data.currentValueOfTextArea;
+
+    const callOneByOneCharachtersEnteringActionCreator = () => { props.callOneByOneCharachtersEnteringActionCreator(textAreaConverterHTMLtoJS.current.value) };
+    const callAddNewMessageActionCreator = () => { props.callAddNewMessageActionCreator(textAreaConverterHTMLtoJS.current.value) };
 
 
 
@@ -40,7 +30,7 @@ const Inbox = (props) => {
                     <div className={stylesheet.textarea}>
                         <textarea
                             onChange={callOneByOneCharachtersEnteringActionCreator}
-                            ref={textAreaConverterHTMLtoJS} 
+                            ref={textAreaConverterHTMLtoJS}
                             placeholder='Enter here your message'
                             value={currentValueOfTextArea} />
                         <button onClick={callAddNewMessageActionCreator}>Send</button>

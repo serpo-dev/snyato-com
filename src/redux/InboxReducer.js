@@ -8,8 +8,8 @@ const ADD_NEW_MESSAGE = 'ADD-NEW-MESSAGE';
 export let currentValueOfTextArea = '';
 
 const initialState = {
-    Person: chats,
-    Messages: [
+    users: chats,
+    messages: [
         {
             id: 1,
             text: "- It's not easy to live your own way."
@@ -31,12 +31,12 @@ export let InboxReducer = (state = initialState, action) => {
             currentValueOfTextArea = action.desiredValue;
             return state;
         case ADD_NEW_MESSAGE:
-            let count = state.Messages.length;
+            let count = state.messages.length;
             let item = {
                 id: count + 1,
                 text: action.desiredValue
             };
-            state.Messages.push(item);
+            state.messages.push(item);
             currentValueOfTextArea = '';
             return state;
         default:

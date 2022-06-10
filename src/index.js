@@ -7,11 +7,11 @@ import App from './App'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
-export let loadPage = (state) => {
+export let loadPage = () => {
 
     root.render(
         <BrowserRouter>
-            <App state={state} dispatch={store.dispatch.bind(store)} />
+            <App store={store} />
         </BrowserRouter>
     );
 }

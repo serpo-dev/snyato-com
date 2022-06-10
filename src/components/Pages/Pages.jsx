@@ -4,8 +4,8 @@ import stylesheet from './Pages.module.css'
 import Home from './Home/Home'
 import Discover from './Discover/Discover'
 import Add from './Add/Add'
-import Inbox from './Inbox/Inbox'
-import Profile from './Profile/Profile'
+import ProfileContainer from './ProfileContainer/ProfileContainer'
+import InboxContainer from './InboxContainer/InboxContainer'
 
 
 const Pages = (props) => {
@@ -15,14 +15,12 @@ const Pages = (props) => {
                 <Route path='/home/*' element={<Home />} />
                 <Route path='/search/*' element={<Discover />} />
                 <Route path='/upload/*' element={<Add />} />
-                <Route path='/im/*' element={<Inbox
-                    Inbox={props.state.Inbox}
-                    dispatch={props.dispatch}
+                <Route path='/im/*' element={<InboxContainer
+                    store={props.store}
                 />} />
-                <Route path='/user/*' element={<Profile
-                    Profile={props.state.Profile}
-                    dispatch={props.dispatch}
-                />} />
+                {/* <Route path='/user/*' element={<ProfileContainer
+                    store={props.store}
+                />} /> */}
             </Routes>
         </div>
     )

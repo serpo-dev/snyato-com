@@ -1,8 +1,6 @@
 const ADD_NEW_POST = 'ADD-NEW-POST';
 const ONE_BY_ONE_CHARACHTERS_ENTERING = 'ONE-BY-ONE-CHARACHTERS-ENTERING';
 
-export let currentValueOfTextArea = '';
-
 const initialState = {
     posts: [
         {
@@ -19,13 +17,14 @@ const initialState = {
                 }
             ]
         }
-    ]
+    ],
+    currentValueOfTextArea: ''
 }
 
 export const ProfileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ONE_BY_ONE_CHARACHTERS_ENTERING:
-            currentValueOfTextArea = action.desiredValue;
+            state.currentValueOfTextArea = action.desiredValue;
             return state;
         case ADD_NEW_POST:
             let count = state.posts.length;
@@ -35,12 +34,12 @@ export const ProfileReducer = (state = initialState, action) => {
                 comments: []
             }
             state.posts.push(item);
-            currentValueOfTextArea = '';
+            state.currentValueOfTextArea = '';
             return state;
         default:
             return state;
     }
 }
 
-export const addNewPostActionCreator = (desiredValue) => ({ type: ADD_NEW_POST, desiredValue: desiredValue })
+export const addNewPostActionCreator = () => ({ type: ADD_NEW_POST })
 export const oneByOneCharachtersEnteringActionCreator = (desiredValue) => ({ type: ONE_BY_ONE_CHARACHTERS_ENTERING, desiredValue: desiredValue })

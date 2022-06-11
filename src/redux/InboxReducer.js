@@ -5,8 +5,6 @@ import chats from './data/inboxItems.json';
 const ONE_BY_ONE_CHARACHTERS_ENTERING = 'ONE-BY-ONE-CHARACHTERS-ENTERING';
 const ADD_NEW_MESSAGE = 'ADD-NEW-MESSAGE';
 
-export let currentValueOfTextArea = '';
-
 const initialState = {
     users: chats,
     messages: [
@@ -22,13 +20,14 @@ const initialState = {
             id: 3,
             text: "- I don't want to be a burden! I want to be useful."
         }
-    ]
+    ],
+    currentValueOfTextArea: ''
 }
 
 export let InboxReducer = (state = initialState, action) => {
     switch (action.type) {
         case ONE_BY_ONE_CHARACHTERS_ENTERING:
-            currentValueOfTextArea = action.desiredValue;
+            state.currentValueOfTextArea = action.desiredValue;
             return state;
         case ADD_NEW_MESSAGE:
             let count = state.messages.length;
@@ -37,12 +36,13 @@ export let InboxReducer = (state = initialState, action) => {
                 text: action.desiredValue
             };
             state.messages.push(item);
-            currentValueOfTextArea = '';
+            state.currentValueOfTextArea = '';
             return state;
         default:
             return state;
     }
 }
 
+
+export let addNewMessageActionCreator = () => ({ type: ADD_NEW_MESSAGE })
 export let oneByOneCharachtersEnteringActionCreator = (desiredValue) => ({ type: ONE_BY_ONE_CHARACHTERS_ENTERING, desiredValue: desiredValue })
-export let addNewMessageActionCreator = (desiredValue) => ({ type: ADD_NEW_MESSAGE, desiredValue: desiredValue })

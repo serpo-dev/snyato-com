@@ -1,61 +1,30 @@
 import React from 'react';
-import { currentValueOfTextArea, oneByOneCharachtersEnteringActionCreator, addNewMessageActionCreator } from './../../../redux/InboxReducer';
+import { oneByOneCharachtersEnteringActionCreator, addNewMessageActionCreator } from './../../../redux/InboxReducer';
 import Inbox from './Inbox/Inbox';
 import ChatItem from './Inbox/ChatItem/ChatItem';
 import Message from './Inbox/Message/Message';
-import StoreContext from '../../../StoreContext'
+import { connect } from 'react-redux'
 
 
-const InboxContainer = () => {
-
-    return (
-        <StoreContext.Consumer>
-            {
-                store => {
-
-                    // converting data array of people and messages to required JSX state
-
-                    const p = store.getState().Inbox.users.map((item, i) => <ChatItem key={i} name={item.name} id={item.id} />)
-                    const m = store.getState().Inbox.messages.map((message, i) => <Message key={i} id={message.id} text={message.text} />).reverse()
-
-                    let data = {
-                        p: p,
-                        m: m,
-                        currentValueOfTextArea: currentValueOfTextArea
-                    }
-
-
-
-                    // get current value of the text area, give it to the action creator and then to the dispatch
-
-                    const callOneByOneCharachtersEnteringActionCreator = (currentValueOfTextArea) => {
-                        store.dispatch(oneByOneCharachtersEnteringActionCreator(currentValueOfTextArea));
-                    }
-
-                    const callAddNewMessageActionCreator = (currentValueOfTextArea) => {
-                        store.dispatch(addNewMessageActionCreator(currentValueOfTextArea));
-                    }
-
-                    const callbacks = {
-                        callOneByOneCharachtersEnteringActionCreator: callOneByOneCharachtersEnteringActionCreator,
-                        callAddNewMessageActionCreator: callAddNewMessageActionCreator
-                    }
-
-
-
-                    return (
-
-                        <Inbox
-                            data={data}
-                            callbacks={callbacks}
-                        />
-
-                    )
-                }
-            }
-        </StoreContext.Consumer>
-
-    )
+let mapStateToProps = (state) => {
+    return {
+        p: state.Inbox.users.map((item, i) => <ChatItem key={i} name={item.name} id={item.id} />),
+        m: state.Inbox.messages.map((message, i) => <Message key={i} id={message.id} text={message.text} />).reverse(),
+        currentValueOfTextArea: state.Inbox.currentValueOfTextArea
+    }
 }
+
+let mapDispatchToProps = (dispatch) => {
+    return {
+        callAddNewMessageActionCreator: () => {
+            dispatch(addNewMessageActionCreator())
+        },
+        callOneByOneCharachtersEnteringActionCreator: (desiredValue) => {
+            dispatch(oneByOneCharachtersEnteringActionCreator(desiredValue))
+        }
+    }
+}
+
+const InboxContainer = connect(mapStateToProps, mapDispatchToProps)(Inbox)
 
 export default InboxContainer;

@@ -5,14 +5,16 @@ import stylesheet from './Profile.module.css'
 const Profile = (props) => {
 
     // convert HTML object to the JS language
+
     let textAreaConverterHTMLtoJS = React.createRef();
 
     // exctract props
-    const posts = props.data.posts;
-    const currentValueOfTextArea = props.data.currentValueOfTextArea;
 
-    const callOneByOneCharachtersEnteringActionCreator = () => props.callbacks.callOneByOneCharachtersEnteringActionCreator(textAreaConverterHTMLtoJS.current.value) 
-    const callAddNewPostActionCreator = () => props.callbacks.callAddNewPostActionCreator(textAreaConverterHTMLtoJS.current.value) 
+    let posts = props.posts;
+    let currentValueOfTextArea = props.currentValueOfTextArea;
+
+    const callOneByOneCharachtersEnteringActionCreator = () => { props.callOneByOneCharachtersEnteringActionCreator(textAreaConverterHTMLtoJS.current.value) }
+    const callAddNewPostActionCreator = () => { props.callAddNewPostActionCreator() }
 
 
     return (

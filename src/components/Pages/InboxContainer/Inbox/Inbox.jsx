@@ -10,12 +10,12 @@ const Inbox = (props) => {
 
     // unpacking props properties
 
-    let p = props.data.p;
-    let m = props.data.m;
-    let currentValueOfTextArea = props.data.currentValueOfTextArea;
+    let p = props.p;
+    let m = props.m;
+    let currentValueOfTextArea = props.currentValueOfTextArea;
 
-    const callOneByOneCharachtersEnteringActionCreator = () => { props.callbacks.callOneByOneCharachtersEnteringActionCreator(textAreaConverterHTMLtoJS.current.value) };
-    const callAddNewMessageActionCreator = () => { props.callbacks.callAddNewMessageActionCreator(textAreaConverterHTMLtoJS.current.value) };
+    const callOneByOneCharachtersEnteringActionCreator = () => { props.callOneByOneCharachtersEnteringActionCreator(textAreaConverterHTMLtoJS.current.value) };
+    const callAddNewMessageActionCreator = () => { props.callAddNewMessageActionCreator() };
 
 
 

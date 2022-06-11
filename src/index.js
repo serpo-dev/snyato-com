@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import store from './redux/redux-store'
 import App from './App'
+import { Provider } from './StoreContext'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -11,7 +12,9 @@ export let loadPage = () => {
 
     root.render(
         <BrowserRouter>
-            <App store={store} />
+            <Provider store={store}>
+                <App />
+            </Provider>
         </BrowserRouter>
     );
 }

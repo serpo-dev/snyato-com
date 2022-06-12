@@ -24,25 +24,21 @@ const initialState = {
 export const ProfileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ONE_BY_ONE_CHARACHTERS_ENTERING:
-            {
-                let stateCopy = { ...state };
-                stateCopy.currentValueOfTextArea = { ...state.currentValueOfTextArea }
-                stateCopy.currentValueOfTextArea = action.desiredValue;
-                return stateCopy;
+            return {
+                ...state,
+                currentValueOfTextArea: action.desiredValue
             }
         case ADD_NEW_POST:
-            {
-                let count = state.posts.length;
-                let item = {
-                    id: count,
-                    text: state.currentValueOfTextArea,
-                    comments: []
-                }
-                let stateCopy = { ...state };
-                stateCopy.posts = [...state.posts];
-                stateCopy.posts.push(item);
-                stateCopy.currentValueOfTextArea = '';
-                return stateCopy;
+            let count = state.posts.length;
+            let item = {
+                id: count,
+                text: state.currentValueOfTextArea,
+                comments: []
+            }
+            return {
+                ...state,
+                posts: [...state.posts, item],
+                currentValueOfTextArea: ''
             }
         default:
             return state;

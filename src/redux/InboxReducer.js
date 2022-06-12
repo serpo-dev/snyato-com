@@ -27,24 +27,20 @@ const initialState = {
 export let InboxReducer = (state = initialState, action) => {
     switch (action.type) {
         case ONE_BY_ONE_CHARACHTERS_ENTERING:
-            {
-                let stateCopy = { ...state };
-                stateCopy.currentValueOfTextArea = { ...state.currentValueOfTextArea }
-                stateCopy.currentValueOfTextArea = action.desiredValue;
-                return stateCopy;
+            return {
+                ...state,
+                currentValueOfTextArea: action.desiredValue
             }
         case ADD_NEW_MESSAGE:
-            {
-                let count = state.messages.length;
-                let item = {
-                    id: count + 1,
-                    text: state.currentValueOfTextArea
-                };
-                let stateCopy = { ...state };
-                stateCopy.messages = [...state.messages];
-                stateCopy.messages.push(item);
-                stateCopy.currentValueOfTextArea = '';
-                return stateCopy;
+            let count = state.messages.length;
+            let item = {
+                id: count + 1,
+                text: state.currentValueOfTextArea
+            };
+            return {
+                ...state,
+                messages: [...state.messages, item],
+                currentValueOfTextArea: ''
             }
         default:
             return state;

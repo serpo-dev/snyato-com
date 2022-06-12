@@ -48,5 +48,5 @@ export let InboxReducer = (state = initialState, action) => {
 }
 
 
-export let addNewMessageActionCreator = () => ({ type: ADD_NEW_MESSAGE })
-export let oneByOneCharachtersEnteringActionCreator = (desiredValue) => ({ type: ONE_BY_ONE_CHARACHTERS_ENTERING, desiredValue: desiredValue })
+export let addNewMessageActionCreator = () => ({ type: ADD_NEW_MESSAGE });
+export let oneByOneCharachtersEnteringActionCreator = (desiredValue) => ({ type: ONE_BY_ONE_CHARACHTERS_ENTERING, desiredValue: desiredValue });

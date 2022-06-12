@@ -21,6 +21,7 @@ const initialState = {
     currentValueOfTextArea: ''
 }
 
+
 export const ProfileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ONE_BY_ONE_CHARACHTERS_ENTERING:

@@ -17,9 +17,6 @@ const Inbox = (props) => {
     const callOneByOneCharachtersEnteringActionCreator = () => { props.callOneByOneCharachtersEnteringActionCreator(textAreaConverterHTMLtoJS.current.value) };
     const callAddNewMessageActionCreator = () => { props.callAddNewMessageActionCreator() };
 
-
-
-
     return (
         <div>
             <div className={stylesheet.messages}>

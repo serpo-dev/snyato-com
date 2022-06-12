@@ -22,7 +22,7 @@ const initialState = {
         }
     ],
     currentValueOfTextArea: ''
-}
+};
 
 export let InboxReducer = (state = initialState, action) => {
     switch (action.type) {

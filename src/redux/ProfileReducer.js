@@ -19,7 +19,7 @@ const initialState = {
         }
     ],
     currentValueOfTextArea: ''
-}
+};
 
 
 export const ProfileReducer = (state = initialState, action) => {

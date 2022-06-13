@@ -1,23 +1,9 @@
 const ADD_NEW_POST = 'ADD-NEW-POST';
 const ONE_BY_ONE_CHARACHTERS_ENTERING = 'ONE-BY-ONE-CHARACHTERS-ENTERING';
+const SET_POSTS = 'SET-POSTS';
 
 const initialState = {
-    posts: [
-        {
-            id: 1,
-            text: `Hey, world! I use a LC to save a moments dear to my heart.`,
-            comments: [
-                {
-                    id: 1,
-                    text: `Wow, it's so cool, dude. `
-                },
-                {
-                    id: 2,
-                    text: `Good luck!`
-                }
-            ]
-        }
-    ],
+    posts: [],
     currentValueOfTextArea: ''
 };
 
@@ -41,6 +27,11 @@ export const ProfileReducer = (state = initialState, action) => {
                 posts: [...state.posts, item],
                 currentValueOfTextArea: ''
             }
+        case SET_POSTS:
+            return {
+                ...state,
+                posts: [].concat(...state.posts, action.setPosts)
+            }
         default:
             return state;
     }
@@ -48,3 +39,4 @@ export const ProfileReducer = (state = initialState, action) => {
 
 export const addNewPostActionCreator = () => ({ type: ADD_NEW_POST })
 export const oneByOneCharachtersEnteringActionCreator = (desiredValue) => ({ type: ONE_BY_ONE_CHARACHTERS_ENTERING, desiredValue: desiredValue })
+export const setPostsActionCreator = (setPosts) => ({ type: SET_POSTS, setPosts: setPosts })

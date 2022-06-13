@@ -1,5 +1,5 @@
 import React from 'react';
-import { oneByOneCharachtersEnteringActionCreator, addNewPostActionCreator } from "../../../redux/ProfileReducer";
+import { oneByOneCharachtersEnteringActionCreator, addNewPostActionCreator, setPostsActionCreator } from "../../../redux/ProfileReducer";
 import Post from './Profile/Post/Post'
 import Profile from './Profile/Profile'
 import { connect } from 'react-redux'
@@ -19,6 +19,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         callOneByOneCharachtersEnteringActionCreator: (desiredValue) => {
             dispatch(oneByOneCharachtersEnteringActionCreator(desiredValue))
+        },
+        callSetPostsActionCreator: (setPosts) => {
+            dispatch(setPostsActionCreator(setPosts))
         }
     }
 }

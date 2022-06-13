@@ -1,5 +1,5 @@
 import React from 'react';
-import { oneByOneCharachtersEnteringActionCreator, addNewMessageActionCreator } from './../../../redux/InboxReducer';
+import { oneByOneCharachtersEnteringActionCreator, addNewMessageActionCreator, setUsersActionCreator, setMessagesActionCreator } from './../../../redux/InboxReducer';
 import Inbox from './Inbox/Inbox';
 import ChatItem from './Inbox/ChatItem/ChatItem';
 import Message from './Inbox/Message/Message';
@@ -21,7 +21,14 @@ let mapDispatchToProps = (dispatch) => {
         },
         callOneByOneCharachtersEnteringActionCreator: (desiredValue) => {
             dispatch(oneByOneCharachtersEnteringActionCreator(desiredValue))
+        },
+        callSetUsersActionCreator: (setUsers) => {
+            dispatch(setUsersActionCreator(setUsers))
+        },
+        callSetMessagesActionCreator: (setMessages) => {
+            dispatch(setMessagesActionCreator(setMessages))
         }
+
     }
 }
 

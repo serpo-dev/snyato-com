@@ -1,26 +1,11 @@
-import chats from './data/inboxItems.json';
-
-
-
 const ONE_BY_ONE_CHARACHTERS_ENTERING = 'ONE-BY-ONE-CHARACHTERS-ENTERING';
 const ADD_NEW_MESSAGE = 'ADD-NEW-MESSAGE';
+const SET_USERS = 'SET-USERS';
+const SET_MESSAGES = 'SET-MESSAGES';
 
 const initialState = {
-    users: chats,
-    messages: [
-        {
-            id: 1,
-            text: "- It's not easy to live your own way."
-        },
-        {
-            id: 2,
-            text: "Because you can't blame anybody but yourself."
-        },
-        {
-            id: 3,
-            text: "- I don't want to be a burden! I want to be useful."
-        }
-    ],
+    users: [],
+    messages: [],
     currentValueOfTextArea: ''
 };
 
@@ -42,6 +27,16 @@ export let InboxReducer = (state = initialState, action) => {
                 messages: [...state.messages, item],
                 currentValueOfTextArea: ''
             }
+        case SET_USERS:
+            return {
+                ...state,
+                users: [].concat(...state.users, action.setUsers)
+            }
+        case SET_MESSAGES:
+            return {
+                ...state,
+                messages: [].concat(...state.messages, action.setMessages)
+            }
         default:
             return state;
     }
@@ -50,3 +45,5 @@ export let InboxReducer = (state = initialState, action) => {
 
 export let addNewMessageActionCreator = () => ({ type: ADD_NEW_MESSAGE });
 export let oneByOneCharachtersEnteringActionCreator = (desiredValue) => ({ type: ONE_BY_ONE_CHARACHTERS_ENTERING, desiredValue: desiredValue });
+export let setUsersActionCreator = (setUsers) => ({ type: SET_USERS, setUsers: setUsers });
+export let setMessagesActionCreator = (setMessages) => ({ type: SET_MESSAGES, setMessages: setMessages });

@@ -1,3 +1,4 @@
+import * as axios from "axios";
 import React from "react";
 import stylesheet from './Inbox.module.css'
 
@@ -17,7 +18,9 @@ const Inbox = (props) => {
     const callOneByOneCharachtersEnteringActionCreator = () => { props.callOneByOneCharachtersEnteringActionCreator(textAreaConverterHTMLtoJS.current.value) };
     const callAddNewMessageActionCreator = () => { props.callAddNewMessageActionCreator() };
 
-    return (
+    // the JSX code is to return
+
+    let result = (
         <div>
             <div className={stylesheet.messages}>
                 <div className={stylesheet.people}>
@@ -40,6 +43,25 @@ const Inbox = (props) => {
             </div>
         </div>
     )
+
+    // load data at the start from db.json
+
+    if (p.length === 0) {
+        axios
+            .get("http://localhost:3001/users")
+            .then(response => {
+                props.callSetUsersActionCreator(response.data);
+            });
+        if (m.length === 0) {
+            axios
+                .get("http://localhost:3001/messages")
+                .then(response => {
+                    props.callSetMessagesActionCreator(response.data);
+                });
+            return result;
+        } else { return result }
+    } else { return result }
+
 }
 
 export default Inbox;

@@ -1,5 +1,6 @@
 import React from "react";
-import stylesheet from './Profile.module.css'
+import * as axios from 'axios';
+import stylesheet from './Profile.module.css';
 
 
 const Profile = (props) => {
@@ -15,6 +16,16 @@ const Profile = (props) => {
 
     const callOneByOneCharachtersEnteringActionCreator = () => { props.callOneByOneCharachtersEnteringActionCreator(textAreaConverterHTMLtoJS.current.value) }
     const callAddNewPostActionCreator = () => { props.callAddNewPostActionCreator() }
+
+    // load data at the start from db.json
+
+    if (posts.length === 0) {
+        axios
+            .get("http://localhost:3001/users")
+            .then(response => {
+                props.callSetPostsActionCreator(response.data);
+            });
+    }
 
 
     return (

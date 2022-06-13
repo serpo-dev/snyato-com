@@ -1,0 +1,62 @@
+{
+    "users": [
+        {
+            "name": "Serega",
+            "id": "1"
+        },
+        {
+            "name": "Lisa",
+            "id": "2"
+        },
+        {
+            "name": "Masha",
+            "id": "3"
+        },
+        {
+            "name": "Kate",
+            "id": "4"
+        },
+        {
+            "name": "Vladimir",
+            "id": "5"
+        },
+        {
+            "name": "Artyom",
+            "id": "6"
+        },
+        {
+            "name": "Petr",
+            "id": "7"
+        }
+    ],
+    "messages": [
+        {
+            "id": 1,
+            "text": "- It's not easy to live your own way."
+        },
+        {
+            "id": 2,
+            "text": "Because you can't blame anybody but yourself."
+        },
+        {
+            "id": 3,
+            "text": "- I don't want to be a burden! I want to be useful."
+        }
+    ],
+    "posts": [
+        {
+            "id": 1,
+            "text": "Hey, world! I use a LC to save a moments dear to my heart.",
+            "comments": [
+                {
+                    "id": 1,
+                    "text": "Wow, it's so cool, dude. "
+                },
+                {
+                    "id": 2,
+                    "text": "Good luck!"
+                }
+            ]
+        }
+    ]
+}

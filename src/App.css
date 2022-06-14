@@ -1,10 +1,10 @@
 .appWrapper {
     display: grid;
     grid-template-areas:
-        "header header"
-        "navbar pages";
+        "navbar navbar navbar"
+        "actbar pages infobar";
     grid-template-rows: 120px;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 2fr 1fr;
     margin: 0pc;
     padding: 0px;
     grid-gap: 10px;
@@ -13,20 +13,21 @@
     justify-items: center;
 }
 
-.Header {
-    grid-area: header;
-    justify-self: left;
-    padding-left: 30%;
-    padding-top: 30px;
+.Actionbar {
+    grid-area: actbar;
+    justify-self: center;
 }
 
 .Navbar {
     grid-area: navbar;
-    justify-self: end;
-    align-self: start;
-    padding-right: 20%;
+    justify-self: center;
+    align-self: end;
 }
 
 .Pages {
     grid-area: pages;
+}
+
+.Infobar {
+    grid-area: infobar;
 }

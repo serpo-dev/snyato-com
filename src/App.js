@@ -1,16 +1,17 @@
 import React from 'react'
 import './App.css'
-import Header from './components/Header/Header'
+import Actionbar from './components/Actionbar/Actionbar'
+import Infobar from './components/Infobar/Infobar'
 import Navbar from './components/Navbar/Navbar'
 import Pages from './components/Pages/Pages'
 
 function App(props) {
   return (
     <div className="appWrapper">
-      <Header />
       <Navbar />
-      <Pages
-        store={props.store} />
+      <Actionbar />
+      <Pages store={props.store} />
+      <Infobar />
     </div >
   );
 }

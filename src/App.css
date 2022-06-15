@@ -1,36 +1,34 @@
 .appWrapperContainer {
     display: block;
     position: absolute;
-    top: 0%;
+    top: 0px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .appWrapper {
-
     display: grid;
     grid-template-areas:
-        "navbar navbar navbar"
+        "logo navbar navbar"
         "actbar pages infobar";
     grid-template-rows: 80px;
-    grid-template-columns: 85px 600px 300px;
-
+    grid-template-columns: 70px 420px 295px;
+    grid-gap: 55px;
     padding: 0px;
-    grid-gap: 10px;
     border: 0px;
-    align-items: center;
-    justify-items: center;
+    align-items: flex-start;
+    justify-items: flex-start;
 }
 
 .Actionbar {
     grid-area: actbar;
-    justify-self: center;
 }
 
 .Navbar {
     grid-area: navbar;
-    justify-self: center;
-    align-self: end;
+    padding-top: 48px;
+    margin-left: 85px;
+    margin-bottom: 20px;
 }
 
 .Pages {
@@ -42,14 +40,54 @@
 }
 
 .bodybar {
-    margin-top: 30px;
-    width: 1000px;
+    /* prohibition to select text */
+
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Chrome/Safari/Opera */
+    -khtml-user-select: none;
+    /* Konqueror */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+    not supported by any browser */
+
+
+    /* other */
+
+    margin-top: 40px;
+    width: 995px;
     pointer-events: none;
     position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .bodybar img {
-    width: 715px;
+    width: 815px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.adaptImg {
+    height: 80vh;
+}
+
+.logo img {
+    pointer-events: none;
+    width: 180px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.logo {
+    grid-area: logo;
+    align-self: center;
+    margin-top: 50px;
 }

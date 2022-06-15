@@ -93,3 +93,7 @@ a {
     width: 85px;
     font-size: 12.5pt;
 }
+
+.addButton img {
+    pointer-events: none;
+}

@@ -21,7 +21,9 @@ const Navbar = () => {
                 </li>
                 <li>
                     <NavLink to='/upload' className={stylesheet.addButton}>
-                        <img src={addButton}></img>
+                        <div>
+                            <img src={addButton} />
+                        </div>
                     </NavLink>
                 </li>
                 <li>

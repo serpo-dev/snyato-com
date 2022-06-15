@@ -8,7 +8,7 @@ import { Provider } from 'react-redux'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-    <div className='App'>
+    <div className='AppAdapt'>
         <BrowserRouter>
             <Provider store={store}>
                 <App />

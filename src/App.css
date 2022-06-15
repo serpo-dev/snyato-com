@@ -1,11 +1,20 @@
+.appWrapperContainer {
+    display: block;
+    position: absolute;
+    top: 0%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .appWrapper {
+
     display: grid;
     grid-template-areas:
         "navbar navbar navbar"
         "actbar pages infobar";
     grid-template-rows: 80px;
-    grid-template-columns: 1fr 2fr 1fr;
-    margin: 0px;
+    grid-template-columns: 85px 600px 300px;
+
     padding: 0px;
     grid-gap: 10px;
     border: 0px;
@@ -30,4 +39,17 @@
 
 .Infobar {
     grid-area: infobar;
+}
+
+.bodybar {
+    margin-top: 30px;
+    width: 1000px;
+    pointer-events: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.bodybar img {
+    width: 715px;
 }

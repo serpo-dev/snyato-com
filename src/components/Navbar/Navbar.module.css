@@ -1,20 +1,43 @@
 .navbar {
 
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+    /* prohibition to select text */
+
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Chrome/Safari/Opera */
+    -khtml-user-select: none;
+    /* Konqueror */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                  not supported by any browser */
+
+
+    /* other */
+
+    display: flex;
+    padding: 0px;
+
 }
 
 .navbar li {
     display: block;
-    margin-left: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
     font-family: 'Inter', sans-serif;
+    height: 40px;
 }
 
 a {
     text-decoration: none;
 
 }
+
+.activeStateSmallButtons {}
 
 .activeStateSmallButtons p {
     background-color: white;
@@ -23,24 +46,20 @@ a {
     font-size: 12pt;
     color: black;
     text-align: center;
-    text-justify: center;
     padding: 10px;
-    margin: 10px;
+    margin: 0px;
     width: 100px;
 }
 
-.smallButtons {
-
-}
+.smallButtons {}
 
 .smallButtons p {
     background-color: #6EA5A1;
     color: #E1FFF1;
     font-size: 12pt;
     text-align: center;
-    text-justify: center;
     padding: 10px;
-    margin: 10px;
+    margin: 0px;
     width: 100px;
     border-radius: 25px;
 }

@@ -3,9 +3,9 @@
     grid-template-areas:
         "navbar navbar navbar"
         "actbar pages infobar";
-    grid-template-rows: 120px;
+    grid-template-rows: 80px;
     grid-template-columns: 1fr 2fr 1fr;
-    margin: 0pc;
+    margin: 0px;
     padding: 0px;
     grid-gap: 10px;
     border: 0px;

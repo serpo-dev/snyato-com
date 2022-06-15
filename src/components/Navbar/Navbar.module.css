@@ -14,30 +14,34 @@
     /* Internet Explorer/Edge */
     user-select: none;
     /* Non-prefixed version, currently
-                                  not supported by any browser */
+    not supported by any browser */
 
 
     /* other */
 
     display: flex;
+    flex-direction: row;
+    text-align: center;
     padding: 0px;
+    margin: 0px;
 
 }
 
 .navbar li {
     display: block;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
     font-family: 'Inter', sans-serif;
     height: 40px;
+    width: 140px;
 }
+
 
 a {
     text-decoration: none;
-
 }
-
-.activeStateSmallButtons {}
 
 .activeStateSmallButtons p {
     background-color: white;
@@ -47,11 +51,12 @@ a {
     color: black;
     text-align: center;
     padding: 10px;
-    margin: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
     width: 100px;
 }
-
-.smallButtons {}
 
 .smallButtons p {
     background-color: #6EA5A1;
@@ -59,11 +64,16 @@ a {
     font-size: 12pt;
     text-align: center;
     padding: 10px;
-    margin: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
     width: 100px;
     border-radius: 25px;
+    transition: 50ms;
 }
 
-.addButton img {
-    align-self: end;
+.smallButtons p:hover {
+    background-color: #5a8a86;
+    width: 110px;
 }

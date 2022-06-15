@@ -1,18 +1,50 @@
 .navbar {
-    display: flex;
-    flex-direction: column;
+
+    display: inline-flex;
     justify-content: center;
-    align-items: flex-end;
-    padding: 10px;
+    align-items: center;
+}
+
+.navbar li {
+    display: block;
+    margin-left: 20px;
+    font-family: 'Inter', sans-serif;
 }
 
 a {
-    color:gray;
     text-decoration: none;
-    font-size: 12pt;
+
 }
 
-.activeState {
+.activeStateSmallButtons p {
+    background-color: white;
+    border-radius: 25px;
     color: black;
-    font-size: 16pt;
+    font-size: 12pt;
+    color: black;
+    text-align: center;
+    text-justify: center;
+    padding: 10px;
+    margin: 10px;
+    width: 100px;
+}
+
+.smallButtons {
+
+}
+
+.smallButtons p {
+    background-color: #6EA5A1;
+    color: #E1FFF1;
+    font-size: 12pt;
+    text-align: center;
+    text-justify: center;
+    padding: 10px;
+    margin: 10px;
+    width: 100px;
+    border-radius: 25px;
+}
+
+.addButton img {
+    align-self: end;
 }

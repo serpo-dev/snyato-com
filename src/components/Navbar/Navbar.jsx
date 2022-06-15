@@ -1,26 +1,41 @@
 import React from 'react'
 import stylesheet from './Navbar.module.css'
 import { NavLink } from 'react-router-dom'
+import addButton from './addButton.png'
+
+
 
 const Navbar = () => {
     return (
         <div className='Navbar'>
-            <div className={stylesheet.navbar}>
-                <div>
-                    <NavLink to='/home' className={(navData) => navData.isActive ? stylesheet.activeState : ""}>Home</NavLink>
-                </div>
-                <div>
-                    <NavLink to='/search' className={(navData) => navData.isActive ? stylesheet.activeState : ""}>Discover</NavLink>
-                </div>
-                <div>
-                    <NavLink to='/upload' className={(navData) => navData.isActive ? stylesheet.activeState : ""}>Add</NavLink>
-                </div>
-                <div>
-                    <NavLink to='/im' className={(navData) => navData.isActive ? stylesheet.activeState : ""}>Inbox</NavLink>
-                </div>
-                <div>
-                    <NavLink to='/user' className={(navData) => navData.isActive ? stylesheet.activeState : ""}>Profile</NavLink>
-                </div>
+            <div>
+                <ul className={stylesheet.navbar}>
+                    <li>
+                        <NavLink to='/home' className={(navData) => navData.isActive ? stylesheet.activeStateSmallButtons : stylesheet.smallButtons}>
+                            <p>Home</p>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to='/search' className={(navData) => navData.isActive ? stylesheet.activeStateSmallButtons : stylesheet.smallButtons}>
+                            <p>Discover</p>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to='/upload' className={stylesheet.addButton}>
+                            <img src={addButton}></img>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to='/im' className={(navData) => navData.isActive ? stylesheet.activeStateSmallButtons : stylesheet.smallButtons}>
+                            <p>Inbox</p>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to='/user' className={(navData) => navData.isActive ? stylesheet.activeStateSmallButtons : stylesheet.smallButtons}>
+                            <p>Profile</p>
+                        </NavLink>
+                    </li>
+                </ul>
             </div>
         </div>
     )

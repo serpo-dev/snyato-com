@@ -5,19 +5,17 @@ import stylesheet from './Inbox.module.css'
 
 class Inbox extends React.Component {
 
-    constructor(props) {
-        super(props);
+    componentDidMount() {
 
         // load data at the start from db.json
 
-        if (this.props.m.length === 0) {
-            axios
-                .get("http://localhost:3001/messages")
-                .then(response => {
-                    this.props.callSetMessagesActionCreator(response.data);
-                });
-        }
+        axios
+            .get("http://localhost:3001/messages")
+            .then(response => {
+                this.props.callSetMessagesActionCreator(response.data);
+            });
     }
+
 
     render() {
 

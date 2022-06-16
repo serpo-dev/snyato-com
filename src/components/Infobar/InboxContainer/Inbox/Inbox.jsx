@@ -5,24 +5,19 @@ import stylesheet from './Inbox.module.css'
 
 class Inbox extends React.Component {
 
-    constructor(props) {
-        super(props);
+    componentDidMount() {
 
         // load data at the start from db.json
-        if (this.props.p.length === 0) {
-            axios
-                .get("http://localhost:3001/users")
-                .then(response => {
-                    this.props.callSetUsersActionCreator(response.data);
-                });
-        }
+
+        axios
+            .get("http://localhost:3001/users")
+            .then(response => {
+                this.props.callSetUsersActionCreator(response.data);
+            });
     }
 
+
     render() {
-
-        // convert html to the js object
-
-        let textAreaConverterHTMLtoJS = React.createRef();
 
         // unpacking props properties
 

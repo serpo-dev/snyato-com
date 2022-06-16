@@ -5,20 +5,17 @@ import stylesheet from './Profile.module.css';
 
 class Profile extends React.Component {
 
-    constructor(props) {
-        super(props);
+    componentDidMount() {
 
         // load data at the start from db.json
 
-        if (this.props.posts.length === 0) {
-            axios
-                .get("http://localhost:3001/posts")
-                .then(response => {
-                    this.props.callSetPostsActionCreator(response.data);
-                });
-        }
-
+        axios
+            .get("http://localhost:3001/posts")
+            .then(response => {
+                this.props.callSetPostsActionCreator(response.data);
+            });
     }
+
 
     render() {
 

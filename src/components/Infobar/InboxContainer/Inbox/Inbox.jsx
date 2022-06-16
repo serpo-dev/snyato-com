@@ -1,39 +1,23 @@
-import * as axios from "axios";
 import React from "react";
 import stylesheet from './Inbox.module.css'
 
 
-class Inbox extends React.Component {
+const Inbox = (props) => {
 
-    componentDidMount() {
+    // unpacking props properties
 
-        // load data at the start from db.json
+    let p = props.p;
 
-        axios
-            .get("http://localhost:3001/users")
-            .then(response => {
-                this.props.callSetUsersActionCreator(response.data);
-            });
-    }
+    // the JSX code is to return
 
-
-    render() {
-
-        // unpacking props properties
-
-        let p = this.props.p;
-
-        // the JSX code is to return
-
-        return (
-            <div className={stylesheet.messages}>
-                <div className={stylesheet.people}>
-                    {p}
-                </div>
+    return (
+        <div className={stylesheet.messages}>
+            <div className={stylesheet.people}>
+                {p}
             </div>
-        )
+        </div>
+    )
 
-    }
 }
 
 export default Inbox;

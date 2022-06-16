@@ -3,6 +3,39 @@ import { oneByOneCharachtersEnteringActionCreator, addNewMessageActionCreator, s
 import Inbox from './Inbox/Inbox';
 import Message from './Inbox/Message/Message';
 import { connect } from 'react-redux'
+import * as axios from "axios";
+
+
+
+class InboxAPIContainer extends React.Component {
+
+    componentDidMount() {
+
+        // load data at the start from db.json
+
+        axios
+            .get("http://localhost:3001/messages")
+            .then(response => {
+                this.props.callSetMessagesActionCreator(response.data);
+            });
+
+    }
+
+    render() {
+
+        return (
+            <Inbox
+                m={this.props.m}
+                currentValueOfTextArea={this.props.currentValueOfTextArea}
+                callAddNewMessageActionCreator={this.props.callAddNewMessageActionCreator}
+                callOneByOneCharachtersEnteringActionCreator={this.props.callOneByOneCharachtersEnteringActionCreator}
+                callSetMessagesActionCreator={this.props.callSetMessagesActionCreator}
+            />
+        )
+
+    }
+}
+
 
 
 let mapStateToProps = (state) => {
@@ -27,6 +60,6 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-const InboxContainer = connect(mapStateToProps, mapDispatchToProps)(Inbox)
+const InboxContainer = connect(mapStateToProps, mapDispatchToProps)(InboxAPIContainer)
 
 export default InboxContainer;

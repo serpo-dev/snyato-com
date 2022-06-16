@@ -3,6 +3,38 @@ import { oneByOneCharachtersEnteringActionCreator, addNewPostActionCreator, setP
 import Post from './Profile/Post/Post'
 import Profile from './Profile/Profile'
 import { connect } from 'react-redux'
+import * as axios from 'axios';
+
+
+class ProfileAPIContainer extends React.Component {
+
+    componentDidMount() {
+
+        // load data at the start from db.json
+
+        axios
+            .get("http://localhost:3001/posts")
+            .then(response => {
+                this.props.callSetPostsActionCreator(response.data);
+            });
+    }
+
+
+    render() {
+
+        return (
+            <Profile
+                posts={this.props.posts}
+                currentValueOfTextArea={this.props.currentValueOfTextArea}
+                callAddNewPostActionCreator={this.props.callAddNewPostActionCreator}
+                callOneByOneCharachtersEnteringActionCreator={this.props.callOneByOneCharachtersEnteringActionCreator}
+                callSetPostsActionCreator={this.props.callSetPostsActionCreator}
+            />
+        )
+
+    }
+}
+
 
 
 let mapStateToProps = (state) => {
@@ -26,7 +58,7 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-const ProfileContainer = connect(mapStateToProps, mapDispatchToProps)(Profile)
+const ProfileContainer = connect(mapStateToProps, mapDispatchToProps)(ProfileAPIContainer)
 
 
 export default ProfileContainer;

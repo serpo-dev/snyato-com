@@ -9,7 +9,7 @@ import bodybarBottom from './bodybarBottom.png'
 import logo from './logo.png'
 import { NavLink } from 'react-router-dom'
 
-function App(props) {
+function App() {
   return (
     <div>
       <div className='bodybar'>
@@ -23,7 +23,7 @@ function App(props) {
           </NavLink>
           <Navbar />
           <Actionbar />
-          <Pages store={props.store} />
+          <Pages />
           <Infobar />
         </div >
       </div>

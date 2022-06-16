@@ -1,9 +1,18 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import InboxContainer from './InboxContainer/InboxContainer'
+
 
 const Infobar = (props) => {
     return (
         <div>
-            <p>here's infobar</p>
+            <Routes>
+                <Route path='/im/*' element={
+                    <InboxContainer
+                        store={props.store}
+                    />}
+                />
+            </Routes>
         </div>
     )
 }

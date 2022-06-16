@@ -1,0 +1,10 @@
+.item {
+    padding: 20px;
+    font-size: 14px;
+    color: rgb(83, 83, 83)
+}
+
+.active {
+    font-size: 18px;
+    color: rgb(37, 35, 35)
+}

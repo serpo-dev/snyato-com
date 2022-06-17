@@ -1,4 +1,4 @@
-const ONE_BY_ONE_CHARACHTERS_ENTERING = 'ONE-BY-ONE-CHARACHTERS-ENTERING';
+const ONE_BY_ONE_CHARACHTERS_ENTERING = 'ONE-BY-ONE-CHARACHTERS-ENTERING-INBOX';
 const ADD_NEW_MESSAGE = 'ADD-NEW-MESSAGE';
 const SET_USERS = 'SET-USERS';
 const SET_MESSAGES = 'SET-MESSAGES';
@@ -6,7 +6,7 @@ const SET_MESSAGES = 'SET-MESSAGES';
 const initialState = {
     users: [],
     messages: [],
-    currentValueOfTextArea: ''
+    currentTAValue: ''
 };
 
 export const InboxReducer = (state = initialState, action) => {
@@ -14,18 +14,18 @@ export const InboxReducer = (state = initialState, action) => {
         case ONE_BY_ONE_CHARACHTERS_ENTERING:
             return {
                 ...state,
-                currentValueOfTextArea: action.desiredValue
+                currentTAValue: action.desiredValue
             }
         case ADD_NEW_MESSAGE:
             let count = state.messages.length;
             let item = {
                 id: count + 1,
-                text: state.currentValueOfTextArea
+                text: state.currentTAValue
             };
             return {
                 ...state,
                 messages: [...state.messages, item],
-                currentValueOfTextArea: ''
+                currentTAValue: ''
             }
         case SET_USERS:
             return {

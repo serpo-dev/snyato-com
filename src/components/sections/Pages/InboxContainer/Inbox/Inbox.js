@@ -11,7 +11,7 @@ const Inbox = (props) => {
     // unpacking props properties
 
     let m = props.m;
-    let currentValueOfTextArea = props.currentValueOfTextArea;
+    let currentTAValue = props.currentTAValue;
 
     const callOneByOneCharachtersEnteringActionCreator = () => { props.callOneByOneCharachtersEnteringActionCreator(textAreaConverterHTMLtoJS.current.value) };
     const callAddNewMessageActionCreator = () => { props.callAddNewMessageActionCreator() };
@@ -25,7 +25,7 @@ const Inbox = (props) => {
                     onChange={callOneByOneCharachtersEnteringActionCreator}
                     ref={textAreaConverterHTMLtoJS}
                     placeholder='Enter here your message'
-                    value={currentValueOfTextArea} />
+                    value={currentTAValue} />
                 <button onClick={callAddNewMessageActionCreator}>Send</button>
             </div>
             <div className={stylesheet.mItems}>

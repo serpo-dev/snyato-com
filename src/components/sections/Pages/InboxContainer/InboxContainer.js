@@ -26,7 +26,7 @@ class InboxAPIContainer extends React.Component {
         return (
             <Inbox
                 m={this.props.m}
-                currentValueOfTextArea={this.props.currentValueOfTextArea}
+                currentTAValue={this.props.currentTAValue}
                 callAddNewMessageActionCreator={this.props.callAddNewMessageActionCreator}
                 callOneByOneCharachtersEnteringActionCreator={this.props.callOneByOneCharachtersEnteringActionCreator}
                 callSetMessagesActionCreator={this.props.callSetMessagesActionCreator}
@@ -41,7 +41,7 @@ class InboxAPIContainer extends React.Component {
 let mapStateToProps = (state) => {
     return {
         m: state.Inbox.messages.map((message, i) => <Message key={i} id={message.id} text={message.text} />).reverse(),
-        currentValueOfTextArea: state.Inbox.currentValueOfTextArea
+        currentTAValue: state.Inbox.currentTAValue
     }
 }
 

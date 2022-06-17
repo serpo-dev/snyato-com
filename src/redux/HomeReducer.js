@@ -1,5 +1,5 @@
 const SECTION_TOGGLE = 'SECTION-TOGGLE';
-const SET_POSTS = 'SET-POSTS';
+const SET_POSTS = 'SET-POSTS-HOME';
 
 
 const initialState = {

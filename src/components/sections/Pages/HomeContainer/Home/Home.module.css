@@ -1,0 +1,9 @@
+.loading {
+    justify-content: center;
+}
+
+.toggle {
+    background-color: aqua;
+    margin: 25px;
+    border-radius: 10px;
+}

@@ -9,7 +9,7 @@ const initialState = {
     currentValueOfTextArea: ''
 };
 
-export let InboxReducer = (state = initialState, action) => {
+export const InboxReducer = (state = initialState, action) => {
     switch (action.type) {
         case ONE_BY_ONE_CHARACHTERS_ENTERING:
             return {
@@ -30,12 +30,12 @@ export let InboxReducer = (state = initialState, action) => {
         case SET_USERS:
             return {
                 ...state,
-                users: [].concat(...state.users, action.setUsers)
+                users: action.setUsers
             }
         case SET_MESSAGES:
             return {
                 ...state,
-                messages: [].concat(...state.messages, action.setMessages)
+                messages: action.setMessages
             }
         default:
             return state;
@@ -43,7 +43,7 @@ export let InboxReducer = (state = initialState, action) => {
 }
 
 
-export let addNewMessageActionCreator = () => ({ type: ADD_NEW_MESSAGE });
-export let oneByOneCharachtersEnteringActionCreator = (desiredValue) => ({ type: ONE_BY_ONE_CHARACHTERS_ENTERING, desiredValue: desiredValue });
-export let setUsersActionCreator = (setUsers) => ({ type: SET_USERS, setUsers: setUsers });
-export let setMessagesActionCreator = (setMessages) => ({ type: SET_MESSAGES, setMessages: setMessages });
+export const addNewMessageActionCreator = () => ({ type: ADD_NEW_MESSAGE });
+export const oneByOneCharachtersEnteringActionCreator = (desiredValue) => ({ type: ONE_BY_ONE_CHARACHTERS_ENTERING, desiredValue: desiredValue });
+export const setUsersActionCreator = (setUsers) => ({ type: SET_USERS, setUsers: setUsers });
+export const setMessagesActionCreator = (setMessages) => ({ type: SET_MESSAGES, setMessages: setMessages });

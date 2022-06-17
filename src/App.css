@@ -7,11 +7,13 @@
 }
 
 .appWrapper {
+    --second_row: calc(90vh - 80px);
+
     display: grid;
     grid-template-areas:
         "logo navbar navbar"
         "actbar pages infobar";
-    grid-template-rows: 80px;
+    grid-template-rows: 80px var(--second_row);
     grid-template-columns: 70px 420px 295px;
     grid-gap: 55px;
     padding: 0px;

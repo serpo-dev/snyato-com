@@ -6,7 +6,7 @@ const ChatItem = (props) => {
 
     return (
         <div className={stylesheet.item}>
-            <NavLink to={`/im/${props.id}`} className={(navData) => navData.isActive ? stylesheet.active : ''}>{props.name}</NavLink>
+            <NavLink to={`/im?id=${props.id}`} className={(navData) => navData.isActive ? stylesheet.active : ''}>{props.name}</NavLink>
         </div>
     )
 }

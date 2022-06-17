@@ -19,6 +19,7 @@ const Home = (props) => {
                     <p>Recommendations</p>
                 </NavLink>
             </div>
+            {props.posts}
 
             <div className={stylesheet.loading}>
                 {props.isFetching ? <Loading /> : null}

@@ -30,7 +30,7 @@ export const ProfileReducer = (state = initialState, action) => {
         case SET_POSTS:
             return {
                 ...state,
-                posts: [].concat(...state.posts, action.setPosts)
+                posts: action.setPosts
             }
         default:
             return state;

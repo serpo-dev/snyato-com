@@ -1,13 +1,13 @@
 import React from 'react'
 import { setPosts, switchSection } from '../../../../redux/HomeReducer'
 import { isFetchingToggle } from '../../../../redux/CommonElementsReducer'
-import Post from './Profile/Post/Post'
+import Post from '../ProfileContainer/Profile/Post/Post'
 import Home from './Home/Home'
 import { connect } from 'react-redux'
 import * as axios from 'axios'
 
 
-class ProfileAPIContainer extends React.Component {
+class HomeAPIContainer extends React.Component {
 
     componentDidMount() {
 
@@ -18,8 +18,8 @@ class ProfileAPIContainer extends React.Component {
         axios
             .get("http://localhost:3001/posts")
             .then(response => {
-                this.props.callSetPosts(response.data);
                 this.props.callIsFetchingToggle(false)
+                this.props.callSetPosts(response.data)
             });
     }
 
@@ -43,7 +43,7 @@ class ProfileAPIContainer extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        posts: state.Profile.posts.map((post, i) => <Post key={i} text={post.text} />).reverse(),
+        posts: state.Home.posts.map((post, i) => <Post key={i} text={post.text} />).reverse(),
         isFetching: state.CommonElements.isFetching
     }
 }
@@ -62,7 +62,7 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-const ProfileContainer = connect(mapStateToProps, mapDispatchToProps)(ProfileAPIContainer)
+const HomeContainer = connect(mapStateToProps, mapDispatchToProps)(HomeAPIContainer)
 
 
-export default ProfileContainer;
+export default HomeContainer;

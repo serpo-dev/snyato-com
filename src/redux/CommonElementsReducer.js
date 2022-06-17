@@ -10,7 +10,7 @@ export const CommonElementsReducer = (state = initialState, action) => {
         case IS_FETCHING:
             return {
                 ...state,
-                isFetching: !action.isFetching
+                isFetching: action.isFetching
             }
         default:
             return state;

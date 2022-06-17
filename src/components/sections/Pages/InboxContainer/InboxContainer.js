@@ -16,7 +16,7 @@ class InboxAPIContainer extends React.Component {
         axios
             .get("http://localhost:3001/messages")
             .then(response => {
-                this.props.callSetMessagesActionCreator(response.data);
+                this.props.setMessagesActionCreator(response.data);
             });
 
     }
@@ -27,9 +27,9 @@ class InboxAPIContainer extends React.Component {
             <Inbox
                 m={this.props.m}
                 currentTAValue={this.props.currentTAValue}
-                callAddNewMessageActionCreator={this.props.callAddNewMessageActionCreator}
-                callOneByOneCharachtersEnteringActionCreator={this.props.callOneByOneCharachtersEnteringActionCreator}
-                callSetMessagesActionCreator={this.props.callSetMessagesActionCreator}
+                addNewMessageActionCreator={this.props.addNewMessageActionCreator}
+                oneByOneCharachtersEnteringActionCreator={this.props.oneByOneCharachtersEnteringActionCreator}
+                setMessagesActionCreator={this.props.setMessagesActionCreator}
             />
         )
 
@@ -45,21 +45,27 @@ let mapStateToProps = (state) => {
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        callAddNewMessageActionCreator: () => {
-            dispatch(addNewMessageActionCreator())
-        },
-        callOneByOneCharachtersEnteringActionCreator: (desiredValue) => {
-            dispatch(oneByOneCharachtersEnteringActionCreator(desiredValue))
-        },
-        callSetMessagesActionCreator: (setMessages) => {
-            dispatch(setMessagesActionCreator(setMessages))
-        }
+// let mapDispatchToProps = (dispatch) => {
+//     return {
+//         callAddNewMessageActionCreator: () => {
+//             dispatch(addNewMessageActionCreator())
+//         },
+//         callOneByOneCharachtersEnteringActionCreator: (desiredValue) => {
+//             dispatch(oneByOneCharachtersEnteringActionCreator(desiredValue))
+//         },
+//         callSetMessagesActionCreator: (setMessages) => {
+//             dispatch(setMessagesActionCreator(setMessages))
+//         }
 
+//     }
+// }
+
+const InboxContainer = connect(mapStateToProps, 
+    {
+        addNewMessageActionCreator,
+        oneByOneCharachtersEnteringActionCreator,
+        setMessagesActionCreator
     }
-}
-
-const InboxContainer = connect(mapStateToProps, mapDispatchToProps)(InboxAPIContainer)
+    )(InboxAPIContainer)
 
 export default InboxContainer;

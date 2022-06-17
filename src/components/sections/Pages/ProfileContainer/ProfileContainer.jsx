@@ -15,7 +15,7 @@ class ProfileAPIContainer extends React.Component {
         axios
             .get("http://localhost:3001/posts")
             .then(response => {
-                this.props.callSetPostsActionCreator(response.data);
+                this.props.setPostsActionCreator(response.data);
             });
     }
 
@@ -26,9 +26,9 @@ class ProfileAPIContainer extends React.Component {
             <Profile
                 posts={this.props.posts}
                 currentValueOfTextArea={this.props.currentValueOfTextArea}
-                callAddNewPostActionCreator={this.props.callAddNewPostActionCreator}
-                callOneByOneCharachtersEnteringActionCreator={this.props.callOneByOneCharachtersEnteringActionCreator}
-                callSetPostsActionCreator={this.props.callSetPostsActionCreator}
+                addNewPostActionCreator={this.props.addNewPostActionCreator}
+                oneByOneCharachtersEnteringActionCreator={this.props.oneByOneCharachtersEnteringActionCreator}
+                setPostsActionCreator={this.props.setPostsActionCreator}
             />
         )
 
@@ -44,21 +44,27 @@ let mapStateToProps = (state) => {
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        callAddNewPostActionCreator: () => {
-            dispatch(addNewPostActionCreator())
-        },
-        callOneByOneCharachtersEnteringActionCreator: (desiredValue) => {
-            dispatch(oneByOneCharachtersEnteringActionCreator(desiredValue))
-        },
-        callSetPostsActionCreator: (setPosts) => {
-            dispatch(setPostsActionCreator(setPosts))
-        }
-    }
-}
+// let mapDispatchToProps = (dispatch) => {
+//     return {
+//         callAddNewPostActionCreator: () => {
+//             dispatch(addNewPostActionCreator())
+//         },
+//         callOneByOneCharachtersEnteringActionCreator: (desiredValue) => {
+//             dispatch(oneByOneCharachtersEnteringActionCreator(desiredValue))
+//         },
+//         callSetPostsActionCreator: (setPosts) => {
+//             dispatch(setPostsActionCreator(setPosts))
+//         }
+//     }
+// }
 
-const ProfileContainer = connect(mapStateToProps, mapDispatchToProps)(ProfileAPIContainer)
+const ProfileContainer = connect(mapStateToProps,
+    {
+        addNewPostActionCreator,
+        oneByOneCharachtersEnteringActionCreator,
+        setPostsActionCreator
+    }
+)(ProfileAPIContainer)
 
 
 export default ProfileContainer;

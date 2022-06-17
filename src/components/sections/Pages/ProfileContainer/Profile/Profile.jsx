@@ -13,8 +13,8 @@ const Profile = (props) => {
     let posts = props.posts;
     let currentValueOfTextArea = props.currentValueOfTextArea;
 
-    const callOneByOneCharachtersEnteringActionCreator = () => { props.callOneByOneCharachtersEnteringActionCreator(textAreaConverterHTMLtoJS.current.value) }
-    const callAddNewPostActionCreator = () => { props.callAddNewPostActionCreator() }
+    const oneByOneCharachtersEnteringActionCreator = () => { props.oneByOneCharachtersEnteringActionCreator(textAreaConverterHTMLtoJS.current.value) }
+    const addNewPostActionCreator = () => { props.addNewPostActionCreator() }
 
     // return JSX
 
@@ -22,12 +22,12 @@ const Profile = (props) => {
         <div className={stylesheet.Prolile}>
             <div className={stylesheet.inputBox}>
                 <textarea
-                    onChange={callOneByOneCharachtersEnteringActionCreator}
+                    onChange={oneByOneCharachtersEnteringActionCreator}
                     ref={textAreaConverterHTMLtoJS}
                     placeholder="What's the new?"
                     value={currentValueOfTextArea}
                 />
-                <button onClick={callAddNewPostActionCreator}>Publish</button>
+                <button onClick={addNewPostActionCreator}>Publish</button>
             </div>
             <div>
                 <br />

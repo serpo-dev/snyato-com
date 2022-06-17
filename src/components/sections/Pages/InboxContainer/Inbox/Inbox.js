@@ -13,8 +13,8 @@ const Inbox = (props) => {
     let m = props.m;
     let currentTAValue = props.currentTAValue;
 
-    const callOneByOneCharachtersEnteringActionCreator = () => { props.callOneByOneCharachtersEnteringActionCreator(textAreaConverterHTMLtoJS.current.value) };
-    const callAddNewMessageActionCreator = () => { props.callAddNewMessageActionCreator() };
+    const oneByOneCharachtersEnteringActionCreator = () => { props.oneByOneCharachtersEnteringActionCreator(textAreaConverterHTMLtoJS.current.value) };
+    const addNewMessageActionCreator = () => { props.addNewMessageActionCreator() };
 
     // the JSX code is to return
 
@@ -22,11 +22,11 @@ const Inbox = (props) => {
         <div>
             <div className={stylesheet.textarea}>
                 <textarea
-                    onChange={callOneByOneCharachtersEnteringActionCreator}
+                    onChange={oneByOneCharachtersEnteringActionCreator}
                     ref={textAreaConverterHTMLtoJS}
                     placeholder='Enter here your message'
                     value={currentTAValue} />
-                <button onClick={callAddNewMessageActionCreator}>Send</button>
+                <button onClick={addNewMessageActionCreator}>Send</button>
             </div>
             <div className={stylesheet.mItems}>
                 <br />

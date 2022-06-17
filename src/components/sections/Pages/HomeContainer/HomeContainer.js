@@ -13,13 +13,13 @@ class HomeAPIContainer extends React.Component {
 
         // load data at the start from db.json
 
-        this.props.callIsFetchingToggle(true)
+        this.props.isFetchingToggle(true)
 
         axios
             .get("http://localhost:3001/posts")
             .then(response => {
-                this.props.callIsFetchingToggle(false)
-                this.props.callSetPosts(response.data)
+                this.props.isFetchingToggle(false)
+                this.props.setPosts(response.data)
             });
     }
 
@@ -30,9 +30,9 @@ class HomeAPIContainer extends React.Component {
             <Home
                 posts={this.props.posts}
                 isFetching={this.props.isFetching}
-                callSwitchSection={this.props.callSwitchSection}
-                callIsFetchingToggle={this.props.callIsFetchingToggle}
-                callSetPosts={this.props.callSetPosts}
+                switchSection={this.props.switchSection}
+                isFetchingToggle={this.props.isFetchingToggle}
+                setPosts={this.props.setPosts}
             />
         )
 
@@ -48,21 +48,27 @@ let mapStateToProps = (state) => {
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        callSwitchSection: (sectionName) => {
-            dispatch(switchSection(sectionName))
-        },
-        callIsFetchingToggle: (isFetching) => {
-            dispatch(isFetchingToggle(isFetching))
-        },
-        callSetPosts: (newPosts) => {
-            dispatch(setPosts(newPosts))
-        }
-    }
-}
+// let mapDispatchToProps = (dispatch) => {
+//     return {
+//         callSwitchSection: (sectionName) => {
+//             dispatch(switchSection(sectionName))
+//         },
+//         callIsFetchingToggle: (isFetching) => {
+//             dispatch(isFetchingToggle(isFetching))
+//         },
+//         callSetPosts: (newPosts) => {
+//             dispatch(setPosts(newPosts))
+//         }
+//     }
+// }
 
-const HomeContainer = connect(mapStateToProps, mapDispatchToProps)(HomeAPIContainer)
+const HomeContainer = connect(mapStateToProps,
+    {
+        switchSection,
+        isFetchingToggle,
+        setPosts
+    }
+)(HomeAPIContainer)
 
 
 export default HomeContainer;

@@ -4,7 +4,8 @@ import stylesheet from './Recommendations.module.css'
 const Recommendations = () => {
     return (
         <div>
-            <p>Here's your recommend photos</p>
+            <button>Next</button>
+            <p>hey</p>
         </div>
     )
 }

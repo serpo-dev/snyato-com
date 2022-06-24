@@ -1,30 +1,47 @@
 import React from 'react'
 import stylesheet from './Home.module.css'
-import Recommendations from './Recommendations/Recommendations'
-import Following from './Following/Following'
 import Loading from '../../../../common/Loading/Loading'
 import { NavLink } from 'react-router-dom'
 
 
 
 const Home = (props) => {
+
+    let posts = props.posts;
+
+    let pass = false;
+
+    const nextPost = () => {
+        if (pass === true) {
+            pass = false;
+            props.updateSlider();
+        } else if (pass === false) {
+            pass = true;
+        }
+    }
+
+    const typev = () => {
+        console.log(pass)
+    }
+
+
     return (
         <div>
-
             <div className={stylesheet.toggle}>
-                <div> </div><NavLink to='/following'>
+                <NavLink to='/home?=following'>
                     <p>Following</p>
                 </NavLink>
                 <NavLink to='/home'>
                     <p>Recommendations</p>
                 </NavLink>
             </div>
-            {props.posts}
-
+            <button onClick={() => {nextPost(); typev()}}>Next</button>
+            <div className={stylesheet.slider}>
+                {posts}
+            </div>
             <div className={stylesheet.loading}>
                 {props.isFetching ? <Loading /> : null}
             </div>
-
         </div>
     )
 }

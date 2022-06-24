@@ -1,10 +1,11 @@
 import React from 'react'
-import { setPosts, switchSection } from '../../../../redux/HomeReducer'
+import { setPosts, switchSection, updateSlider } from '../../../../redux/HomeReducer'
 import { isFetchingToggle } from '../../../../redux/CommonElementsReducer'
-import Post from '../ProfileContainer/Profile/Post/Post'
+import Post from './Home/Post/Post'
 import Home from './Home/Home'
 import { connect } from 'react-redux'
 import * as axios from 'axios'
+import stylesheet from './Home/Home.module.css'
 
 
 class HomeAPIContainer extends React.Component {
@@ -13,10 +14,13 @@ class HomeAPIContainer extends React.Component {
 
         // load data at the start from db.json
 
-        this.props.isFetchingToggle(true)
+        this.props.isFetchingToggle(true);
+
+        let startCount = this.props.startCount;
+        let endCount = startCount + 4;
 
         axios
-            .get("http://localhost:3001/posts")
+            .get(`http://localhost:3001/posts?_start=${startCount}&_end=${endCount}`)
             .then(response => {
                 this.props.isFetchingToggle(false)
                 this.props.setPosts(response.data)
@@ -26,6 +30,8 @@ class HomeAPIContainer extends React.Component {
 
     render() {
 
+
+
         return (
             <Home
                 posts={this.props.posts}
@@ -33,6 +39,7 @@ class HomeAPIContainer extends React.Component {
                 switchSection={this.props.switchSection}
                 isFetchingToggle={this.props.isFetchingToggle}
                 setPosts={this.props.setPosts}
+                updateSlider={this.props.updateSlider}
             />
         )
 
@@ -43,8 +50,9 @@ class HomeAPIContainer extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        posts: state.Home.posts.map((post, i) => <Post key={i} text={post.text} />).reverse(),
-        isFetching: state.CommonElements.isFetching
+        posts: state.Home.posts.map((post, i) => <div key={i} className={stylesheet.item}><Post content={post.content} /></div>),
+        isFetching: state.CommonElements.isFetching,
+        startCount: state.Home.startCount
     }
 }
 
@@ -66,7 +74,8 @@ const HomeContainer = connect(mapStateToProps,
     {
         switchSection,
         isFetchingToggle,
-        setPosts
+        setPosts,
+        updateSlider
     }
 )(HomeAPIContainer)
 

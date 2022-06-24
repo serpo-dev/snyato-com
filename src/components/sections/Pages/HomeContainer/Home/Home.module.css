@@ -7,3 +7,37 @@
     padding: 25px;
     border-radius: 10px;
 }
+
+.slider {
+    margin: 0;
+    width: 300px;
+    height: 300px;
+    position: relative;
+
+}
+
+.item {
+    position: absolute;
+}
+
+.item img {
+    width: 300px;
+    height: 300px;
+}
+
+
+.item:nth-child(1) {
+    top: 0%;
+}
+
+.item:nth-child(2) {
+    top: 100%;
+}
+
+.item:nth-child(3) {
+    top: 200%;
+}
+
+.item:nth-child(4) {
+    top: 300%;
+}

@@ -12,19 +12,7 @@ const Home = (props) => {
     let frame = document.querySelector(`.${stylesheet.frame}`)
     let btn = document.querySelector(`.${stylesheet.btnNext}`)
 
-    const getNextPost = () => {
-        frame.style.top = "-350px"
-        frame.style.transition = "top 0.5s ease-out 0s";
-        console.log('getNextPost')
-    }
-
-    const animation = () => {
-        if (frame.style.top === '-350px') {
-            props.updateSlider();
-            props.getPosts();
-            console.log('animation')
-        }
-    }
+    const getNextPost = props.getNextPost;
 
     return (
         <div>
@@ -36,12 +24,7 @@ const Home = (props) => {
                     <p>Recommendations</p>
                 </NavLink>
             </div>
-            <button onClick={() => {
-                animation();
-                setTimeout(() => {
-                    getNextPost();
-                }, 50);
-            }} className={stylesheet.btnNext}>
+            <button onClick={getNextPost} className={stylesheet.btnNext}>
                 Next
             </button>
             <div className={stylesheet.loading}>

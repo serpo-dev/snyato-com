@@ -31,25 +31,40 @@ class HomeAPIContainer extends React.Component {
 
     render() {
 
-        const getPosts = () => {
+        const getNextPost = () => {
 
             // load data at the start from db.json
 
             this.props.isFetchingToggle(true);
 
-            let startCount = this.props.startCount + 1;
+            let startCount = this.props.startCount;
             let endCount = startCount + 3;
 
             let frame = document.querySelector(`.${stylesheet.frame}`)
 
-            axios
-                .get(`http://localhost:3001/posts?_start=${startCount}&_end=${endCount}`)
-                .then(response => {
-                    this.props.isFetchingToggle(false)
-                    this.props.setPosts(response.data)
-                    frame.style.top = "0px";
-                    frame.style.transition = null;
-                });
+            this.props.updateSlider();
+            if (frame.style.top === "-350px") {
+
+                axios
+                    .get(`http://localhost:3001/posts?_start=${startCount}&_end=${endCount}`)
+                    .then(response => {
+                        this.props.isFetchingToggle(false)
+                        this.props.setPosts(response.data)
+                        frame.style.top = "0px"
+                        frame.style.transition = null;
+                        setTimeout(() => {
+                            frame.style.top = "-350px"
+                            frame.style.transition = "top 0.5s ease-out 0s";
+                        }, 50)
+                    });
+            } else {
+                frame.style.top = "-350px"
+                frame.style.transition = "top 0.5s ease-out 0s";
+                this.props.isFetchingToggle(false)
+            }
+
+
+
         }
 
         return (
@@ -60,7 +75,7 @@ class HomeAPIContainer extends React.Component {
                 isFetchingToggle={this.props.isFetchingToggle}
                 setPosts={this.props.setPosts}
                 updateSlider={this.props.updateSlider}
-                getPosts={getPosts}
+                getNextPost={getNextPost}
             />
         )
 

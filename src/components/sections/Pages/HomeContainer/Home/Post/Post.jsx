@@ -20,15 +20,9 @@ let Post = (props) => {
     //     textAreaConverterHTMLtoJS.current.value = '';
     // }
 
-let imgPath = `../../`
-
     return (
         <div className={stylesheet.Post}>
-            <div>
-                <p>
                     <img src={props.content} />
-                </p>
-            </div>
             {/* <br />
             <div>
                 <p>Likes: </p>{props.post.likes}

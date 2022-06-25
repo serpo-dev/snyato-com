@@ -25,12 +25,28 @@ class HomeAPIContainer extends React.Component {
                 this.props.isFetchingToggle(false)
                 this.props.setPosts(response.data)
             });
+
     }
 
 
     render() {
 
+        const getPosts = () => {
 
+            // load data at the start from db.json
+
+            this.props.isFetchingToggle(true);
+
+            let startCount = this.props.startCount + 2;
+            let endCount = startCount + 4;
+
+            axios
+                .get(`http://localhost:3001/posts?_start=${startCount}&_end=${endCount}`)
+                .then(response => {
+                    this.props.isFetchingToggle(false)
+                    this.props.setPosts(response.data)
+                });
+        }
 
         return (
             <Home
@@ -40,6 +56,7 @@ class HomeAPIContainer extends React.Component {
                 isFetchingToggle={this.props.isFetchingToggle}
                 setPosts={this.props.setPosts}
                 updateSlider={this.props.updateSlider}
+                getPosts={getPosts}
             />
         )
 

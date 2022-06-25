@@ -11,7 +11,6 @@ const initialState = {
 export const HomeReducer = (state = initialState, action) => {
     switch (action.type) {
         case NEXT_SLIDER_ARRAY:
-            console.log(state.startCount)
             return {
                 ...state,
                 startCount: state.startCount + 2

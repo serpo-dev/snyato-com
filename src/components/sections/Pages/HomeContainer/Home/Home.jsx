@@ -7,6 +7,14 @@ import { NavLink } from 'react-router-dom'
 
 const Home = (props) => {
 
+    let activeSliderFrame = stylesheet.secondFrame;
+    console.log(activeSliderFrame)
+
+    const activeFrameToggle = () => {
+        activeSliderFrame = stylesheet.thirdFrame;
+        console.log(activeSliderFrame)
+    }
+
     let posts = props.posts;
 
     let pass = false;
@@ -15,15 +23,13 @@ const Home = (props) => {
         if (pass === true) {
             pass = false;
             props.updateSlider();
+            props.getPosts();
         } else if (pass === false) {
             pass = true;
+            activeFrameToggle();
         }
-    }
 
-    const typev = () => {
-        console.log(pass)
     }
-
 
     return (
         <div>
@@ -35,12 +41,12 @@ const Home = (props) => {
                     <p>Recommendations</p>
                 </NavLink>
             </div>
-            <button onClick={() => {nextPost(); typev()}}>Next</button>
-            <div className={stylesheet.slider}>
-                {posts}
-            </div>
+            <button onClick={() => { nextPost() }}>Next</button>
             <div className={stylesheet.loading}>
                 {props.isFetching ? <Loading /> : null}
+            </div>
+            <div className={stylesheet.slider}>
+                    {posts}
             </div>
         </div>
     )

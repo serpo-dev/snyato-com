@@ -9,33 +9,40 @@
 }
 
 .slider {
-    margin: 0;
     width: 300px;
-    height: 300px;
+    height: 500px;
     position: relative;
-
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    background-color: red;
 }
+
 
 .item {
     position: absolute;
+    margin: 0;
+    padding: 0;
 }
 
 .item img {
     width: 300px;
     height: 300px;
+    padding: 0;
+    margin: 0;
 }
 
 
 .item:nth-child(1) {
-    top: 0%;
+    top: -250px;
 }
 
 .item:nth-child(2) {
-    top: 100%;
+    top: 100px;
 }
 
 .item:nth-child(3) {
-    top: 200%;
+    top: 450px;
 }
 
 .item:nth-child(4) {

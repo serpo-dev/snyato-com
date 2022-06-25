@@ -40,11 +40,15 @@ class HomeAPIContainer extends React.Component {
             let startCount = this.props.startCount + 1;
             let endCount = startCount + 3;
 
+            let frame = document.querySelector(`.${stylesheet.frame}`)
+
             axios
                 .get(`http://localhost:3001/posts?_start=${startCount}&_end=${endCount}`)
                 .then(response => {
                     this.props.isFetchingToggle(false)
                     this.props.setPosts(response.data)
+                    frame.style.top = "0px";
+                    frame.style.transition = null;
                 });
         }
 
@@ -57,7 +61,6 @@ class HomeAPIContainer extends React.Component {
                 setPosts={this.props.setPosts}
                 updateSlider={this.props.updateSlider}
                 getPosts={getPosts}
-                posY={this.props.posY + 350}
             />
         )
 
@@ -71,7 +74,6 @@ let mapStateToProps = (state) => {
         posts: state.Home.posts.map((post, i) => <div key={i} className={stylesheet.item}><Post content={post.content} /></div>),
         isFetching: state.CommonElements.isFetching,
         startCount: state.Home.startCount,
-        posY: state.Home.posY
     }
 }
 

@@ -8,23 +8,21 @@ import { NavLink } from 'react-router-dom'
 const Home = (props) => {
 
     let posts = props.posts;
-    let posY = props.posY;
 
     let frame = document.querySelector(`.${stylesheet.frame}`)
-
-    console.log(posY)
+    let btn = document.querySelector(`.${stylesheet.btnNext}`)
 
     const getNextPost = () => {
         frame.style.top = "-350px"
-        frame.style.transition = "top 1s 0s";
+        frame.style.transition = "top 0.5s ease-out 0s";
+        console.log('getNextPost')
     }
 
     const animation = () => {
         if (frame.style.top === '-350px') {
             props.updateSlider();
             props.getPosts();
-            frame.style.top = "0px"
-            frame.style.transition = null;
+            console.log('animation')
         }
     }
 
@@ -43,7 +41,7 @@ const Home = (props) => {
                 setTimeout(() => {
                     getNextPost();
                 }, 50);
-            }}>
+            }} className={stylesheet.btnNext}>
                 Next
             </button>
             <div className={stylesheet.loading}>

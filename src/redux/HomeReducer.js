@@ -5,7 +5,6 @@ const NEXT_SLIDER_ARRAY = 'NEXT-SLIDER-ARRAY';
 const initialState = {
     posts: [],
     startCount: 0,
-    posY: 0,
     currentSection: 'Recommendations'
 }
 
@@ -15,7 +14,6 @@ export const HomeReducer = (state = initialState, action) => {
             return {
                 ...state,
                 startCount: state.startCount + 1,
-                posY: state.posY + 20
             }
         case SECTION_TOGGLE:
             return {

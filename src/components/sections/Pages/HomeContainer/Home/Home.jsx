@@ -8,25 +8,24 @@ import { NavLink } from 'react-router-dom'
 const Home = (props) => {
 
     let posts = props.posts;
+    let posY = props.posY;
 
-    let pass = false;
+    let frame = document.querySelector(`.${stylesheet.frame}`)
 
-    const nextPost = () => {
+    console.log(posY)
 
-        let item = document.querySelector(`.${stylesheet.frame}`)
+    const getNextPost = () => {
+        frame.style.top = "-350px"
+        frame.style.transition = "top 1s 0s";
+    }
 
-        if (pass === true) {
-            pass = false;
+    const animation = () => {
+        if (frame.style.top === '-350px') {
             props.updateSlider();
             props.getPosts();
-            item.style.top = "0px";
-            item.style.transition = "all ease 1s";
-        } else if (pass === false) {
-            pass = true;
-            item.style.top = "-350px";
-            item.style.transition = "all ease 1s";
+            frame.style.top = "0px"
+            frame.style.transition = null;
         }
-
     }
 
     return (
@@ -39,13 +38,22 @@ const Home = (props) => {
                     <p>Recommendations</p>
                 </NavLink>
             </div>
-            <button onClick={() => { nextPost() }}>Next</button>
+            <button onClick={() => {
+                animation();
+                setTimeout(() => {
+                    getNextPost();
+                }, 50);
+            }}>
+                Next
+            </button>
             <div className={stylesheet.loading}>
                 {props.isFetching ? <Loading /> : null}
             </div>
-            <div className={stylesheet.slider}>
-                <div className={stylesheet.frame}>
-                    {posts}
+            <div className={stylesheet.sliderWrapper}>
+                <div className={stylesheet.slider}>
+                    <div className={stylesheet.frame}>
+                        {posts}
+                    </div>
                 </div>
             </div>
         </div>

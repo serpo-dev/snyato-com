@@ -17,7 +17,7 @@ class HomeAPIContainer extends React.Component {
         this.props.isFetchingToggle(true);
 
         let startCount = this.props.startCount;
-        let endCount = startCount + 4;
+        let endCount = startCount + 3;
 
         axios
             .get(`http://localhost:3001/posts?_start=${startCount}&_end=${endCount}`)
@@ -37,8 +37,8 @@ class HomeAPIContainer extends React.Component {
 
             this.props.isFetchingToggle(true);
 
-            let startCount = this.props.startCount + 2;
-            let endCount = startCount + 4;
+            let startCount = this.props.startCount + 1;
+            let endCount = startCount + 3;
 
             axios
                 .get(`http://localhost:3001/posts?_start=${startCount}&_end=${endCount}`)
@@ -57,6 +57,7 @@ class HomeAPIContainer extends React.Component {
                 setPosts={this.props.setPosts}
                 updateSlider={this.props.updateSlider}
                 getPosts={getPosts}
+                posY={this.props.posY + 350}
             />
         )
 
@@ -69,7 +70,8 @@ let mapStateToProps = (state) => {
     return {
         posts: state.Home.posts.map((post, i) => <div key={i} className={stylesheet.item}><Post content={post.content} /></div>),
         isFetching: state.CommonElements.isFetching,
-        startCount: state.Home.startCount
+        startCount: state.Home.startCount,
+        posY: state.Home.posY
     }
 }
 

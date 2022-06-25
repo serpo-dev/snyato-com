@@ -7,26 +7,24 @@ import { NavLink } from 'react-router-dom'
 
 const Home = (props) => {
 
-    let activeSliderFrame = stylesheet.secondFrame;
-    console.log(activeSliderFrame)
-
-    const activeFrameToggle = () => {
-        activeSliderFrame = stylesheet.thirdFrame;
-        console.log(activeSliderFrame)
-    }
-
     let posts = props.posts;
 
     let pass = false;
 
     const nextPost = () => {
+
+        let item = document.querySelector(`.${stylesheet.frame}`)
+
         if (pass === true) {
             pass = false;
             props.updateSlider();
             props.getPosts();
+            item.style.top = "0px";
+            item.style.transition = "all ease 1s";
         } else if (pass === false) {
             pass = true;
-            activeFrameToggle();
+            item.style.top = "-350px";
+            item.style.transition = "all ease 1s";
         }
 
     }
@@ -46,7 +44,9 @@ const Home = (props) => {
                 {props.isFetching ? <Loading /> : null}
             </div>
             <div className={stylesheet.slider}>
+                <div className={stylesheet.frame}>
                     {posts}
+                </div>
             </div>
         </div>
     )

@@ -9,10 +9,14 @@ const Home = (props) => {
 
     let posts = props.posts;
 
-    let frame = document.querySelector(`.${stylesheet.frame}`)
-    let btn = document.querySelector(`.${stylesheet.btnNext}`)
-
     const getNextPost = props.getNextPost;
+
+    const onWheel = (e) => {
+        console.log(e.deltaY)
+        if (e.deltaY > 0) {
+            getNextPost();
+        }
+    }
 
     return (
         <div>
@@ -24,13 +28,10 @@ const Home = (props) => {
                     <p>Recommendations</p>
                 </NavLink>
             </div>
-            <button onClick={getNextPost} className={stylesheet.btnNext}>
-                Next
-            </button>
             <div className={stylesheet.loading}>
                 {props.isFetching ? <Loading /> : null}
             </div>
-            <div className={stylesheet.sliderWrapper}>
+            <div onWheel={onWheel} className={stylesheet.sliderWrapper}>
                 <div className={stylesheet.slider}>
                     <div className={stylesheet.frame}>
                         {posts}

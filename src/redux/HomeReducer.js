@@ -1,6 +1,7 @@
 const SECTION_TOGGLE = 'SECTION-TOGGLE';
 const SET_POSTS = 'SET-POSTS-HOME';
 const NEXT_SLIDER_ARRAY = 'NEXT-SLIDER-ARRAY';
+const PREVIOUS_SLIDER_ARRAY = 'PREVIOUS-SLIDER-ARRAY';
 
 const initialState = {
     posts: [],
@@ -11,6 +12,11 @@ const initialState = {
 export const HomeReducer = (state = initialState, action) => {
     switch (action.type) {
         case NEXT_SLIDER_ARRAY:
+            return {
+                ...state,
+                startCount: state.startCount + 1,
+            }
+        case PREVIOUS_SLIDER_ARRAY:
             return {
                 ...state,
                 startCount: state.startCount + 1,
@@ -33,3 +39,4 @@ export const HomeReducer = (state = initialState, action) => {
 export const switchSection = (sectionName) => ({ type: SECTION_TOGGLE, sectionName: sectionName })
 export const setPosts = (newPosts) => ({ type: SET_POSTS, newPosts: newPosts })
 export const updateSlider = () => ({ type: NEXT_SLIDER_ARRAY })
+export const comebackSlider = () => ({ type: PREVIOUS_SLIDER_ARRAY })

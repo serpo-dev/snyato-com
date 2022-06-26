@@ -5,7 +5,7 @@ import Post from './Home/Post/Post'
 import Home from './Home/Home'
 import { connect } from 'react-redux'
 import * as axios from 'axios'
-import stylesheet from './Home/Home.module.css'
+import stylesheet from '../../../common/Slider/Slider.module.css'
 
 
 class HomeAPIContainer extends React.Component {
@@ -129,7 +129,7 @@ let mapStateToProps = (state) => {
         posts: state.Home.posts.map((post, i) => <div key={i} className={stylesheet.item}><Post content={post.content} /></div>),
         isFetching: state.CommonElements.isFetching,
         startCount: state.Home.startCount,
-        sum: state.Home.sum
+        sum: state.Home.sum,
     }
 }
 

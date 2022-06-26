@@ -7,6 +7,9 @@ const initialState = {
 
 export const CommonElementsReducer = (state = initialState, action) => {
     switch (action.type) {
+
+        // Loading.js
+
         case IS_FETCHING:
             return {
                 ...state,
@@ -14,6 +17,10 @@ export const CommonElementsReducer = (state = initialState, action) => {
             }
         default:
             return state;
+
+        // Slider.js
+
+        
     }
 }
 

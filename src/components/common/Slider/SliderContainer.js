@@ -33,8 +33,6 @@ class SliderContainer extends React.Component {
                 state.setPosts(response.data)
             });
 
-        console.log(2)
-
     }
 
     render() {
@@ -42,7 +40,7 @@ class SliderContainer extends React.Component {
         let state = this.props.state;
         let axiosType = this.props.axiosType;
 
-        const getNextPost = () => {
+        const getNextPost = (resolve) => {
 
             // load data at the start from db.json
 
@@ -66,16 +64,18 @@ class SliderContainer extends React.Component {
                         setTimeout(() => {
                             frame.style.top = "-450px"
                             frame.style.transition = "top 0.2s ease-out 0s";
+                            resolve();
                         }, 50)
                     });
             } else {
                 frame.style.top = "-450px"
                 frame.style.transition = "top 0.2s ease-out 0s";
                 state.isFetchingToggle(false)
+                resolve();
             }
         }
 
-        const getPreviousPost = () => {
+        const getPreviousPost = (resolve) => {
 
             // load data at the start from db.json
 
@@ -100,6 +100,7 @@ class SliderContainer extends React.Component {
                         setTimeout(() => {
                             frame.style.top = "-450px";
                             frame.style.transition = "top 0.2s ease-out 0s";
+                            resolve();
                         }, 50)
                     });
             } else {
@@ -110,6 +111,7 @@ class SliderContainer extends React.Component {
                     setTimeout(() => {
                         frame.style.top = "0px";
                         state.isFetchingToggle(false);
+                        resolve();
                     }, 50);
                 }, 50);
 
@@ -133,20 +135,18 @@ class SliderContainer extends React.Component {
 
                 if (sum === 3) {
                     const propmise = new Promise((resolve) => {
-                        getNextPost();
                         this.connectToggle = false;
-                        resolve(true);
+                        getNextPost(resolve);
                     }).then(resolve => {
-                        this.connectToggle = resolve;
+                        this.connectToggle = true;
                     })
 
                 } else if (sum === -3) {
                     const promise = new Promise((resolve) => {
-                        getPreviousPost();
                         this.connectToggle = false;
-                        resolve(true);
+                        getPreviousPost(resolve);
                     }).then(resolve => {
-                        this.connectToggle = resolve;
+                        this.connectToggle = true;
                     })
 
                 }

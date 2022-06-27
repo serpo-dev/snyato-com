@@ -4,7 +4,6 @@ import { isFetchingToggle } from '../../../../redux/CommonElementsReducer'
 import Post from './Home/Post/Post'
 import Home from './Home/Home'
 import { connect } from 'react-redux'
-import * as axios from 'axios'
 import stylesheet from '../../../common/Slider/Slider.module.css'
 
 
@@ -35,19 +34,6 @@ let mapStateToProps = (state) => {
     }
 }
 
-// let mapDispatchToProps = (dispatch) => {
-//     return {
-//         callSwitchSection: (sectionName) => {
-//             dispatch(switchSection(sectionName))
-//         },
-//         callIsFetchingToggle: (isFetching) => {
-//             dispatch(isFetchingToggle(isFetching))
-//         },
-//         callSetPosts: (newPosts) => {
-//             dispatch(setPosts(newPosts))
-//         }
-//     }
-// }
 
 const HomeContainer = connect(mapStateToProps,
     {

@@ -15,7 +15,7 @@ class InboxAPIContainer extends React.Component {
         axios
             .get("http://localhost:3001/users")
             .then(response => {
-                this.props.callSetUsersActionCreator(response.data);
+                this.props.setUsersActionCreator(response.data);
             });
 
     }
@@ -26,7 +26,6 @@ class InboxAPIContainer extends React.Component {
         return (
             <Inbox
                 p={this.props.p}
-                callSetUsersActionCreator={this.props.callSetUsersActionCreator}
             />
         )
 
@@ -39,14 +38,10 @@ let mapStateToProps = (state) => {
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        callSetUsersActionCreator: (setUsers) => {
-            dispatch(setUsersActionCreator(setUsers))
-        }
+const InboxContainer = connect(mapStateToProps, 
+    {
+        setUsersActionCreator
     }
-}
-
-const InboxContainer = connect(mapStateToProps, mapDispatchToProps)(InboxAPIContainer)
+    )(InboxAPIContainer)
 
 export default InboxContainer;

@@ -164,5 +164,14 @@
                 }
             ]
         }
+    ],
+    "profile": [
+        {
+            "id": 1,
+            "username": "yphwd",
+            "fullname": "Sergey Potapov",
+            "status": "Человек ловит тильт каждый раз, когда в момент закипания воды в  кастрюле он не может найти пачку  пельменей в морозильнике.",
+            "avatar": "https://sun3-17.userapi.com/impf/Xj4yb_3xtVBnA8YBrAh5LOulQn0oTwBKIK8eJw/lLRf9UqYj64.jpg?size=736x981&quality=96&sign=5c49fa93bd362c094da1b8dad7b41290&type=album"
+        }
     ]
 }

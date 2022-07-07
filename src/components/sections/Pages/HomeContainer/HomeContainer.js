@@ -11,18 +11,14 @@ class HomeAPIContainer extends React.Component {
 
     render() {
 
-        const axiosType = 'posts';
-
         return (
             <Home
                 state={this.props}
-                axiosType={axiosType}
             />
         )
 
     }
 }
-
 
 
 let mapStateToProps = (state) => {

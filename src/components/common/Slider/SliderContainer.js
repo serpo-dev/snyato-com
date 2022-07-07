@@ -26,8 +26,9 @@ class SliderContainer extends React.Component {
         let startCount = state.startCount;
         let endCount = startCount + 3;
 
+
         axios
-            .get(`http://localhost:3001/${axiosType}?_start=${startCount}&_end=${endCount}`)
+            .get(`http://localhost:3001/posts?_start=${startCount}&_end=${endCount}`)
             .then(response => {
                 state.isFetchingToggle(false)
                 state.setPosts(response.data)
@@ -55,7 +56,7 @@ class SliderContainer extends React.Component {
             if (frame.style.top === "-450px") {
 
                 axios
-                    .get(`http://localhost:3001/${axiosType}?_start=${startCount}&_end=${endCount}`)
+                    .get(`http://localhost:3001/posts?_start=${startCount}&_end=${endCount}`)
                     .then(response => {
                         state.isFetchingToggle(false)
                         state.setPosts(response.data)
@@ -91,7 +92,7 @@ class SliderContainer extends React.Component {
             if (startCount >= 0) {
 
                 axios
-                    .get(`http://localhost:3001/${axiosType}?_start=${startCount}&_end=${endCount}`)
+                    .get(`http://localhost:3001/posts?_start=${startCount}&_end=${endCount}`)
                     .then(response => {
                         state.isFetchingToggle(false)
                         state.setPosts(response.data)

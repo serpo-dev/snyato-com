@@ -2,6 +2,7 @@ import React from 'react';
 import Slider from './Slider';
 import stylesheet from './Slider.module.css'
 import * as axios from 'axios'
+import { SliderAPI } from '../../../api/api';
 
 
 
@@ -9,13 +10,11 @@ class SliderContainer extends React.Component {
 
     constructor(props) {
         super(props);
-        this.connectToggle = true;
     }
 
     componentDidMount() {
 
         let state = this.props.state;
-        let axiosType = this.props.axiosType;
 
         this.connectToggle = true;
 
@@ -27,19 +26,17 @@ class SliderContainer extends React.Component {
         let endCount = startCount + 3;
 
 
-        axios
-            .get(`http://localhost:3001/posts?_start=${startCount}&_end=${endCount}`)
-            .then(response => {
+        SliderAPI.getPosts(startCount, endCount)
+            .then(data => {
                 state.isFetchingToggle(false)
-                state.setPosts(response.data)
-            });
+                state.setPosts(data)
+            })
 
     }
 
     render() {
 
         let state = this.props.state;
-        let axiosType = this.props.axiosType;
 
         const getNextPost = (resolve) => {
 
@@ -55,19 +52,19 @@ class SliderContainer extends React.Component {
 
             if (frame.style.top === "-450px") {
 
-                axios
-                    .get(`http://localhost:3001/posts?_start=${startCount}&_end=${endCount}`)
-                    .then(response => {
+                SliderAPI.getPosts(startCount, endCount)
+                    .then(data => {
                         state.isFetchingToggle(false)
-                        state.setPosts(response.data)
+                        state.setPosts(data)
                         frame.style.top = "0px"
-                        frame.style.transition = null;
-                        setTimeout(() => {
-                            frame.style.top = "-450px"
-                            frame.style.transition = "top 0.2s ease-out 0s";
-                            resolve();
-                        }, 50)
-                    });
+                        frame.style.transition = null
+                    })
+                    .then(() => {
+                        frame.style.top = "-450px"
+                        frame.style.transition = "top 0.2s ease-out 0s";
+                        resolve();
+                    })
+
             } else {
                 frame.style.top = "-450px"
                 frame.style.transition = "top 0.2s ease-out 0s";
@@ -91,11 +88,10 @@ class SliderContainer extends React.Component {
 
             if (startCount >= 0) {
 
-                axios
-                    .get(`http://localhost:3001/posts?_start=${startCount}&_end=${endCount}`)
-                    .then(response => {
+                SliderAPI.getPosts(startCount, endCount)
+                    .then(data => {
                         state.isFetchingToggle(false)
-                        state.setPosts(response.data)
+                        state.setPosts(data)
                         frame.style.top = "-900px"
                         frame.style.transition = null;
                         setTimeout(() => {

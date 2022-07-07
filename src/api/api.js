@@ -26,11 +26,11 @@ export const InboxAPI = {
 }
 
 export const SliderAPI = {
-    getPosts() {
+    getPosts(startCount, endCount) {
         return (
             instance
-                .get('posts')
-                .then(response => response.data)
+            .get(`posts?_start=${startCount}&_end=${endCount}`)
+            .then(response => response.data)
         )
     }
 };

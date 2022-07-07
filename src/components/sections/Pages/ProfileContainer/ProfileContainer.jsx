@@ -3,7 +3,7 @@ import { oneByOneCharachtersEnteringActionCreator, addNewPostActionCreator, setP
 import Post from './Profile/Post/Post'
 import Profile from './Profile/Profile'
 import { connect } from 'react-redux'
-import * as axios from 'axios';
+import { ProfileAPI } from '../../../../api/api';
 
 
 class ProfileAPIContainer extends React.Component {
@@ -12,11 +12,9 @@ class ProfileAPIContainer extends React.Component {
 
         // load data at the start from db.json
 
-        axios
-            .get("http://localhost:3001/posts")
-            .then(response => {
-                this.props.setPostsActionCreator(response.data);
-            });
+        ProfileAPI.getPosts().then(data => {
+            this.props.setPostsActionCreator(data);
+        });
     }
 
 

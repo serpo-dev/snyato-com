@@ -3,7 +3,7 @@ import { oneByOneCharachtersEnteringActionCreator, addNewMessageActionCreator, s
 import Inbox from './Inbox/Inbox';
 import Message from './Inbox/Message/Message';
 import { connect } from 'react-redux'
-import * as axios from "axios";
+import { InboxAPI } from '../../../../api/api';
 
 
 
@@ -13,10 +13,9 @@ class InboxAPIContainer extends React.Component {
 
         // load data at the start from db.json
 
-        axios
-            .get("http://localhost:3001/messages")
-            .then(response => {
-                this.props.setMessagesActionCreator(response.data);
+        InboxAPI.getMessages()
+            .then(data => {
+                this.props.setMessagesActionCreator(data);
             });
 
     }

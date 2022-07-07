@@ -10,8 +10,8 @@ import stylesheet from '../../../common/Slider/Slider.module.css'
 class HomeAPIContainer extends React.Component {
 
     render() {
-        
-const axiosType = 'posts';
+
+        const axiosType = 'posts';
 
         return (
             <Home

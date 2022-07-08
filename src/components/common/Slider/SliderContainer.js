@@ -94,14 +94,15 @@ class SliderContainer extends React.Component {
                         state.setPosts(data)
                         frame.style.top = "-900px"
                         frame.style.transition = null;
-                        setTimeout(() => {
-                            frame.style.top = "-450px";
-                            frame.style.transition = "top 0.2s ease-out 0s";
-                            resolve();
-                        }, 50)
-                    });
+                    })
+                    .then(() => {
+                        frame.style.top = "-450px";
+                        frame.style.transition = "top 0.2s ease-out 0s";
+                        resolve();
+                    })
+
             } else {
-                frame.style.top = "0px"
+                frame.style.top = "0px";
                 frame.style.transition = "top 0.2s ease-out 0s";
                 setTimeout(() => {
                     frame.style.top = "100px";

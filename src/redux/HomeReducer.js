@@ -48,6 +48,6 @@ export const HomeReducer = (state = initialState, action) => {
 
 export const switchSection = (sectionName) => ({ type: SECTION_TOGGLE, sectionName: sectionName })
 export const setPosts = (newPosts) => ({ type: SET_POSTS, newPosts: newPosts })
-export const updateSlider = () => ({ type: NEXT_SLIDER_ARRAY })
-export const comebackSlider = () => ({ type: PREVIOUS_SLIDER_ARRAY })
+export const forwardSlider = () => ({ type: NEXT_SLIDER_ARRAY })
+export const backSlider = () => ({ type: PREVIOUS_SLIDER_ARRAY })
 export const incrementSum = (valueOfSum) => ({ type: INCREMENT_SUM, valueOfSum: valueOfSum })

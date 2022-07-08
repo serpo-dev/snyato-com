@@ -26,7 +26,8 @@ export const InboxAPI = {
 }
 
 export const SliderAPI = {
-    getPosts(startCount, endCount) {
+    getPosts(startCount) {
+        let endCount = startCount + 3;
         return (
             instance
             .get(`posts?_start=${startCount}&_end=${endCount}`)

@@ -11,10 +11,6 @@ const forwardSlider = home.forwardSlider;
 const backSlider = home.backSlider;
 
 
-let frame = document.querySelector(`.${stylesheet.frame}`)
-console.log(frame)
-
-
 export const start = (startCount) => (dispatch) => {
     dispatch(isFetchingToggle(true));
     SliderAPI.getPosts(startCount)
@@ -25,6 +21,8 @@ export const start = (startCount) => (dispatch) => {
 }
 
 export const next = (startCount) => (dispatch) => {
+    const frame = document.querySelector(`.${stylesheet.frame}`);
+
     dispatch(isFetchingToggle(true));
     dispatch(forwardSlider());
 
@@ -49,12 +47,14 @@ export const next = (startCount) => (dispatch) => {
 }
 
 export const back = (startCount) => (dispatch) => {
+    const frame = document.querySelector(`.${stylesheet.frame}`);
+
     dispatch(isFetchingToggle(true));
     dispatch(backSlider());
 
     let fixBagStartCount = startCount - 2;
 
-    if (startCount >= 0) {
+    if (fixBagStartCount >= 0) {
 
         SliderAPI.getPosts(fixBagStartCount)
             .then(data => {
@@ -78,7 +78,5 @@ export const back = (startCount) => (dispatch) => {
                 dispatch(isFetchingToggle(false));
             }, 50);
         }, 50);
-
-
     }
 }

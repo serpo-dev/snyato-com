@@ -3,6 +3,7 @@ import Slider from './Slider';
 
 let connectToggle = true;
 
+
 class SliderContainer extends React.Component {
 
     componentDidMount() {
@@ -25,7 +26,6 @@ class SliderContainer extends React.Component {
         let startCount = state.startCount;
 
         const onWheel = (e) => {
-
             if (connectToggle === true) {
                 if (e.deltaY > 0) {
                     incrementSum(1);
@@ -34,35 +34,30 @@ class SliderContainer extends React.Component {
                 }
 
                 if (sum === 3) {
-                    const propmise = new Promise((resolve) => {
-                        connectToggle = false;
-                        nextSlide(startCount);
-                        return resolve
-                    }).then((resolve) => {
-                        connectToggle = true
-                        return resolve
-                    })
-                } else if (sum === -3) {
-                    const promise = new Promise((resolve) => {
-                        connectToggle = false;
-                        backSlide(startCount);
-                        return resolve
-                    }).then((resolve) => {
-                        connectToggle = true
-                        return resolve
-                    })
+                    connectToggle = false;
+                    nextSlide(startCount);
+                    setTimeout(() => {
+                        connectToggle = true;
+                    }, 200);
                 }
+            else if (sum === -3) {
+                    connectToggle = false;
+                    backSlide(startCount);
+                    setTimeout(() => {
+                        connectToggle = true
+                    }, 200)
             }
         }
+    }
 
-        return (
+    return(
             <Slider
-                state={state}
-                onWheel={onWheel}
-                postsType={postsType}
+                state = { state }
+                onWheel = { onWheel }
+                postsType = { postsType }
             />
         )
-    }
+}
 
 }
 

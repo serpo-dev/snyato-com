@@ -40,24 +40,24 @@ class SliderContainer extends React.Component {
                         connectToggle = true;
                     }, 200);
                 }
-            else if (sum === -3) {
+                else if (sum === -3) {
                     connectToggle = false;
                     backSlide(startCount);
                     setTimeout(() => {
                         connectToggle = true
                     }, 200)
+                }
             }
         }
-    }
 
-    return(
+        return (
             <Slider
-                state = { state }
-                onWheel = { onWheel }
-                postsType = { postsType }
+                state={state}
+                onWheel={onWheel}
+                postsType={postsType}
             />
         )
-}
+    }
 
 }
 
